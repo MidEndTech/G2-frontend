@@ -1,6 +1,13 @@
 import { useState } from "react";
 
-const BlogPostPage = () => {
+const BlogPostPage = ({
+  userName,
+  title,
+  date,
+  content,
+  initialLike,
+  views,
+}) => {
   const [likes, setLikes] = useState(0);
 
   const handleLikes = () => {
@@ -13,31 +20,28 @@ const BlogPostPage = () => {
         <div className="user-info">
           <div className="avatar"></div>
           <div>
-            <h3 className="username">Feisal</h3>
-            <h4 className="title">Software Dev</h4>
+            <h3 className="username">{userName}</h3>
+            <h4 className="title">{title}</h4>
           </div>
         </div>
         <div className="post-options">
-          <span className="post-date">6 2024</span>
+          <span className="post-date">{date}</span>
           <span className="options-icon">⋮</span>
         </div>
       </div>
       <div className="card-content">
-        <p>
-          wdawkdakpwodakwdopawkwoakd awkdaowdkapowdkaowpdk
-          oakwdoapwdkaowdkaodawdkopk.
-        </p>
+        <p>{content}</p>
       </div>
       <div className="card-like">
         <div className="likes-item">
-          <button className="like-icon" onClick={handleLikes}>1
-            ♡
+          <button className="like-icon" onClick={handleLikes}>
+            {likes} ♡
           </button>
-          {/* <span>12</span> */}
+         
         </div>
         <div className="footer-item">
           <span className="icon"> 📊</span>
-          <span>202K</span>
+          <span>{views}</span>
         </div>
       </div>
     </div>
