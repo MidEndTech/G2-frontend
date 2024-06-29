@@ -2,6 +2,8 @@
 import LogIn from '../RegistrationComponents/LogIn'
 
 function LogInPage() {
+
+
   return (
     <div>
         <LogIn/>
