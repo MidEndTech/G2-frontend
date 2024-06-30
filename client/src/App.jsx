@@ -3,6 +3,7 @@ import Home from "./Home";
 import Header from "./Components/Header";
 import LogInPage from "./Pages/LogInPage";
 import SignInPage from "./Pages/SignInPage";
+import ProfilePage from "./Pages/ProfilePage";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/LogInPage" element={<LogInPage />} />
         <Route path="/SignInPage" element={<SignInPage />} />
+        <Route path="/ProfilePage" element={<ProfilePage/>}/>
       </Routes>
     </>
   );

@@ -8,10 +8,10 @@ function Header(props) {
         </Link> 
 
           {props.isLoggedIn ?
-          <>
+          <Link to={"/ProfilePage"}>
             <img style={{ width:'50px',height:'50px', borderRadius:"30px"}} src="https://via.placeholder.com/50" alt="user photo" />
-            <p> &nbsp;musab alsayed</p> 
-          </>
+            <p style={{color:"green"}}> &nbsp;musab alsayed</p> 
+          </Link>
           :
             <>
               <Link to={"/LogInPage"}>LogIn</Link>
