@@ -174,83 +174,178 @@ textarea {
   background-color: #b0b0b0;
 }
 
-
-
 .card {
-    background-color: #e0e0e0;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .user-info {
-    display: flex;
-    align-items: center;
-  }
-  
-  .avatar {
-    width: 50px;
-    height: 50px;
-    background-color: #ccc;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .username {
-    margin: 0;
-    font-size: 1.1em;
-    font-weight: bold;
-  }
-  
-  .title {
-    margin: 0;
-    font-size: 1em;
-    font-weight: bold;
-  }
-  
-  .post-options {
-    text-align: right;
-  }
-  
-  .post-date {
-    font-size: 0.9em;
-    color: #555;
-    margin-right: 10px;
-  }
-  
-  .options-icon {
-    cursor: pointer;
-    font-size: 1.2em;
-  }
-  
-  .card-content {
-    margin-bottom: 20px;
-  }
-  
-  .card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .footer-item {
-    display: flex;
-    align-items: center;
-    font-size: 1em;
-    color: #555;
-  }
-  
-  .icon {
-    margin-right: 5px;
-    font-size: 1.2em;
-  }
+  background-color: #e0e0e0;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  font-family: Arial, sans-serif;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.username {
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.title {
+  margin: 0;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.post-options {
+  text-align: right;
+}
+
+.post-date {
+  font-size: 0.9em;
+  color: #555;
+  margin-right: 10px;
+}
+
+.options-icon {
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+.card-content {
+  margin-bottom: 20px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  color: #555;
+}
+
+.icon {
+  margin-right: 5px;
+  font-size: 1.2em;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #dddddd;
+  width: 20%;
+}
+
+.form-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+.form-name {
+  display: inline-block;
+  width: 200px;
+  margin: 0 20px 0 0;
+  padding: 5px;
+}
+
+.lbl {
+  margin: 0 0 3px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.form-email {
+  width: 200px;
+  margin: 0 20px 0 0;
+  padding: 5px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.email {
+  width: 450px;
+  padding: 5px;
+}
+
+.form-bio {
+  margin: 0 20px 0 0;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.bio {
+  width: 466px;
+  padding: 4px;
+}
+
+.form-number {
+  width: 200px;
+  margin: 0 20px 0 0;
+  padding: 5px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.contact {
+  width: 450px;
+  padding: 5px;
+}
+
+.form-location {
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+select {
+  width: 100%;
+  margin: 0 20px 0 0;
+  padding: 5px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.form-password {
+  width: 300px;
+  margin: 0 20px 0 0;
+  padding: 5px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.password{
+  width: 450px;
+  padding: 5px;
+}
