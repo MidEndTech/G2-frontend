@@ -1,9 +1,5 @@
-
 import { Link } from 'react-router-dom';
 import  "./header.css";
-
-import Blog from "../assets/Blog.png";
-
 
 function Header(props) {
   return (

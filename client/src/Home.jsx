@@ -26,7 +26,7 @@ const Home = () => {
     },
   ]);
 
-  const addPost = (newPost) => {
+  const c = (newPost) => {
     // const date = new Date().toISOString().split("T")[0];
     setPosts([...posts, { ...newPost, initialLike: 0, views: 0 }]);
   };
