@@ -18,7 +18,7 @@ function Header(props) {
 
 
       <div className="right-sec">
-        {props.isLoggedIn ? (
+        {!props.isLoggedIn ? (
           <>
             <img
               style={{ width: "50px", height: "50px", borderRadius: "30px" }}

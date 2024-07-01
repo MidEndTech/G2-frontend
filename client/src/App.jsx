@@ -5,6 +5,7 @@ import LogInPage from "./Pages/LogInPage";
 import SignInPage from "./Pages/SignInPage";
 
 import EditProfile from "./Pages/EditProfile";
+import ProfilePage from "./Pages/ProfilePage";
 
 function App() {
   const isLoggedIn = true; // this variable for chick the user it's log in or not
