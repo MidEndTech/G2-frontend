@@ -1,56 +1,47 @@
-import { useState } from "react";
+import{ useState } from "react";
 
-const CreatePost = ({ onClose, addPost }) => {
-  // const [title, setTitle] = useState("");
-  // const [body, setBody] = useState("");
+const EditPost = ({ post, onClose, savePost }) => {
 
-  const [posts, setPosts] = useState([]);
 
-  const [newPost, setNewPosts] = useState({
-    userName: "Anonymous",
-    title: "",
-    body: "",
-  });
+  const [editedPost, setEditedPost] = useState(post);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setNewPosts({ ...newPost, [name]: value });
+    setEditedPost({ ...editedPost, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addPost(newPost);
-
-    setNewPosts({ userName: "SPACE", title: "", body: "" });
+    savePost(editedPost);
     onClose();
   };
 
   return (
-    <div className="create">
+    <div className="edit">
       <div className="blog-content">
         <span className="close" onClick={onClose}>
-          &times;
+          ×
         </span>
-        <h1 className="blog-crt-header">Create Post</h1>
+        <h1 className="blog-edit-header">Edit Post</h1>
         <form onSubmit={handleSubmit}>
           <label>Subject</label>
           <input
             type="text"
             name="title"
             required
-            value={newPost.title}
+            value={editedPost.title}
             onChange={handleInputChange}
           />
           <label>Blog body:</label>
           <textarea
             type="text"
-            name="body"
+            name="content"
             required
-            value={newPost.body}
+            value={editedPost.content}
             onChange={handleInputChange}
           ></textarea>
           <button type="submit" className="btn-submit">
-            Submitg
+            Save
           </button>
         </form>
       </div>
@@ -58,4 +49,4 @@ const CreatePost = ({ onClose, addPost }) => {
   );
 };
 
-export default CreatePost;
+export default EditPost;
