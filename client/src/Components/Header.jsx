@@ -1,48 +1,45 @@
-import { Link } from "react-router-dom";
+
+import { Link } from 'react-router-dom';
+import  "./header.css";
+
 import Blog from "../assets/Blog.png";
+
 
 function Header(props) {
   return (
+    <div className='buttons'>
     <div className="main">
-      <div className="left-sec">
-        <Link className="nav-link" to={"/"}>
-          <img className="blog-logo" width="50px" height="50px" src={Blog} />
-        </Link>
-        <Link to={"/"} className="nav-link">
-          Home
-        </Link>
-        <Link to={"/blogs"} className="nav-link">
-          Blogs
-        </Link>
-      </div>
 
+        <img src="src\assets\logoblog.jpg" alt="logo" style={{ width: '55px', height: 'auto' }}/>
+            <h1 className="header"></h1>
+            
+            
 
-      <div className="right-sec">
-        {!props.isLoggedIn ? (
-          <>
-            <img
-              style={{ width: "50px", height: "50px", borderRadius: "30px" }}
-              src="https://via.placeholder.com/50"
-              alt="user photo"
-            />
-            <p> &nbsp;musab alsayed</p>
-            <Link className="nav-link" to={"/EditProfile"}>
-              EditProfile
-            </Link>
-          </>
-        ) : (
-          <div className="user-info">
-            <Link className="nav-link" to={"/LogInPage"}>
-              LogIn
-            </Link>
-            <Link className="nav-link" to={"/SignInPage"}>
-              SignIn
-            </Link>
-          </div>
-        )}
-      </div>
+          {props.isLoggedIn ?
+          <Link to={"/ProfilePage"}>
+            <img style={{ width:'50px',height:'50px', borderRadius:"30px"}} src="https://via.placeholder.com/50" alt="user photo" />
+            <p style={{color:"green"}}> &nbsp;musab alsayed</p> 
+          </Link>
+          :
+            <>
+              <ul> 
+             <li><Link to={"/"}>Home</Link></li>
+             <li> <Link to={"/"}>New</Link></li>
+             <li><Link to={"/"}>Trend</Link></li>
+             <li> <Link to={"/"}>Bloges</Link></li>
+             <li> <Link to={"/"}>Favorites</Link></li>
+             <button className='btn1'> <Link to={"/LogInPage"}>Login</Link></button>
+             <button className='btn2'> <Link to={"/SignInPage"}>SignIn</Link></button>
+              </ul>
+              
+             
+             
+            </>}
+
+            </div>
     </div>
-  );
+    
+  )
 }
 
 export default Header;

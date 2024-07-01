@@ -1,0 +1,49 @@
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  .herosection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .headerr {
+    color: white;
+    font-weight: bold;
+    font-size: 100px;
+    margin-top: 550px;
+  }
+  
+  .herosection > p {
+    margin-top: 5px;
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    
+  }
+  
+  .btn {
+    padding: 8px 20px;
+    background-color: white;
+    font-size: 18px;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 60px;
+    margin-bottom: 100px;
+  }
+  
+  .btn:hover {
+    background-color: #dad7d7;
+  }
