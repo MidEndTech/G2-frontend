@@ -10,7 +10,7 @@ import ProfilePage from "./Pages/ProfilePage";
 function App() {
 
 
-  const isLoggedIn = false ; // this variable for chick the user it's log in or not 
+  const isLoggedIn = true ; // this variable for chick the user it's log in or not 
 
   
 
