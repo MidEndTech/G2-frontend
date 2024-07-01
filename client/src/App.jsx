@@ -1,11 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./Home";
+// import Home from "./Home";
 import Header from "./Components/Header";
 import LogInPage from "./Pages/LogInPage";
 import SignInPage from "./Pages/SignInPage";
 
 import EditProfile from "./Pages/EditProfile";
 import ProfilePage from "./Pages/ProfilePage";
+import HomePage from "./Pages/HomePage";
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
     <>
       <Header isLoggedIn={isLoggedIn} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/LogInPage" element={<LogInPage />} />
         <Route path="/SignInPage" element={<SignInPage />} />
 

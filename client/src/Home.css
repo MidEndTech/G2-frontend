@@ -20,7 +20,8 @@ video {
     color: white;
     font-weight: bold;
     font-size: 100px;
-    margin-top: 550px;
+    margin-top: 800px;
+    text-align: center;
   }
   
   .herosection > p {
@@ -41,9 +42,11 @@ video {
     font-size: 15px;
     font-family: 'Times New Roman', Times, serif;
     margin-top: 60px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
   }
   
   .btn:hover {
     background-color: #dad7d7;
   }
+
+  

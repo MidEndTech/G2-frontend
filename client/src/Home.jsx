@@ -49,7 +49,7 @@ const Home = () => {
       </div>
       <div className="contianer">
         <div className="blogs-header">
-          <h2 className="posts-hdr">Posts</h2>
+          <h2 className="posts-hdr">Blog</h2>
           <a href="#" className="btn-crt" onClick={openCreate}>
             Create
           </a>

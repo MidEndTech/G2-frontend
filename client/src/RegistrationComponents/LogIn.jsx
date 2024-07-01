@@ -2,6 +2,7 @@
 
 import { useReducer } from "react";
 import { Link } from "react-router-dom";
+import "./login.css";
 
 function LogIn() {
   //here put a initial value for inputs
@@ -41,8 +42,9 @@ function LogIn() {
 
   return (
     <div>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
+      
+      <h1 className="login1">Login</h1>
+      <form className="login-form" onSubmit={handleSubmit}>
         <label htmlFor="Email">
           Email:
           <input
@@ -65,10 +67,12 @@ function LogIn() {
           />
         </label>
 
-        <button>Login</button>
+        <button className="login-btn" style={{display: 'block',
+    margin: '1.5rem auto',}}>Login</button>
       </form>
-      <p>
-        Not a member?<Link to={"/SignInPage"}>SignIn</Link>
+      
+      <p className="login2" style={{ textAlign: "center" }}>
+        Not a member?<Link to={"/SignInPage"}>SignUp</Link>
       </p>
     </div>
   );

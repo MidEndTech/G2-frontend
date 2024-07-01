@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import  "./header.css";
 
-import Blog from "../assets/Blog.png";
+
 
 
 function Header(props) {
@@ -29,7 +29,7 @@ function Header(props) {
              <li> <Link to={"/"}>Bloges</Link></li>
              <li> <Link to={"/"}>Favorites</Link></li>
              <button className='btn1'> <Link to={"/LogInPage"}>Login</Link></button>
-             <button className='btn2'> <Link to={"/SignInPage"}>SignIn</Link></button>
+             <button className='btn2'> <Link to={"/SignInPage"}>SignUp</Link></button>
               </ul>
               
              

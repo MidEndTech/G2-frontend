@@ -145,10 +145,6 @@ form {
   align-items: flex-start;
 }
 
-label {
-  margin-top: 10px;
-  font-weight: bold;
-}
 
 input[type="text"],
 textarea {
