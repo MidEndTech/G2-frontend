@@ -8,17 +8,58 @@ body {
 a {
   text-decoration: none;
 }
-
 .main {
-  flex: 1;
-  background-color: black;
-  color: white;
-  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.left-section {
+  display: flex;
   align-items: center;
 }
 
+.right-section {
+  display: flex;
+  align-items: center;
+}
+
+.blog-logo {
+  margin-right: 20px;
+}
+
+.nav-link {
+  margin-right: 20px;
+  color: grey;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: black;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info img {
+  margin-right: 10px;
+}
+
+.user-info p {
+  margin: 0;
+  font-size: 1em;
+  margin-right: 10px;
+}
 .header {
   color: white;
 }
@@ -61,12 +102,19 @@ p {
   margin: 10px;
 }
 
+.blogs-header {
+  overflow: hidden;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+
 .btn-crt {
   float: right;
   background-color: #007bff;
   color: white;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 10px;
+
   border-radius: 5px;
   transition: background-color 0.3s;
 }
@@ -174,83 +222,162 @@ textarea {
   background-color: #b0b0b0;
 }
 
-
-
 .card {
-    background-color: #e0e0e0;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .user-info {
-    display: flex;
-    align-items: center;
-  }
-  
-  .avatar {
-    width: 50px;
-    height: 50px;
-    background-color: #ccc;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .username {
-    margin: 0;
-    font-size: 1.1em;
-    font-weight: bold;
-  }
-  
-  .title {
-    margin: 0;
-    font-size: 1em;
-    font-weight: bold;
-  }
-  
-  .post-options {
-    text-align: right;
-  }
-  
-  .post-date {
-    font-size: 0.9em;
-    color: #555;
-    margin-right: 10px;
-  }
-  
-  .options-icon {
-    cursor: pointer;
-    font-size: 1.2em;
-  }
-  
-  .card-content {
-    margin-bottom: 20px;
-  }
-  
-  .card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .footer-item {
-    display: flex;
-    align-items: center;
-    font-size: 1em;
-    color: #555;
-  }
-  
-  .icon {
-    margin-right: 5px;
-    font-size: 1.2em;
-  }
+  background-color: #e0e0e0;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  font-family: Arial, sans-serif;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.username {
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.title {
+  margin: 0;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.post-options {
+  text-align: right;
+}
+
+.post-date {
+  font-size: 0.9em;
+  color: #555;
+  margin-right: 10px;
+}
+
+.options-icon {
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+.card-content {
+  margin-bottom: 20px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  color: #555;
+}
+
+.icon {
+  margin-right: 5px;
+  font-size: 1.2em;
+}
+
+.form-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: auto;
+  background-color: #fff;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-name {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.lbl {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.form-email,
+.form-bio
+.form-number,
+.form-password {
+  margin-bottom: 20px;
+}
+
+.email,
+.bio,
+.contact,
+.password {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.form-location {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.location-label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.location {
+  width: 100%;
+  padding: 10px;
+  border: 1;
+}
