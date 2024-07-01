@@ -1,11 +1,15 @@
+
 import { Link } from 'react-router-dom';
 import  "./header.css";
+
+import Blog from "../assets/Blog.png";
 
 
 function Header(props) {
   return (
     <div className='buttons'>
     <div className="main">
+
         <img src="src\assets\logoblog.jpg" alt="logo" style={{ width: '55px', height: 'auto' }}/>
             <h1 className="header"></h1>
             
@@ -38,4 +42,4 @@ function Header(props) {
   )
 }
 
-export default Header
+export default Header;

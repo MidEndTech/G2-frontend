@@ -1,14 +1,27 @@
 import { useState } from "react";
 
-const CreatePost = ({ onClose }) => {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+const CreatePost = ({ onClose, addPost }) => {
+  // const [title, setTitle] = useState("");
+  // const [body, setBody] = useState("");
+
+  const [posts, setPosts] = useState([]);
+
+  const [newPost, setNewPosts] = useState({
+    userName: "Anonymous",
+    title: "",
+    body: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewPosts({ ...newPost, [name]: value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const blog = { title, body };
+    addPost(newPost);
 
-    console.log(blog);
+    setNewPosts({ userName: "SPACE", title: "", body: "" });
     onClose();
   };
 
@@ -23,19 +36,21 @@ const CreatePost = ({ onClose }) => {
           <label>Subject</label>
           <input
             type="text"
+            name="title"
             required
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={newPost.title}
+            onChange={handleInputChange}
           />
           <label>Blog body:</label>
           <textarea
             type="text"
+            name="body"
             required
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
+            value={newPost.body}
+            onChange={handleInputChange}
           ></textarea>
           <button type="submit" className="btn-submit">
-            Submit
+            Submitg
           </button>
         </form>
       </div>
