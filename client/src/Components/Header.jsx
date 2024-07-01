@@ -1,11 +1,15 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import  "./header.css";
+
 
 function Header(props) {
   return (
+    <div className='buttons'>
     <div className="main">
-        <Link to={'/'}>
-            <h1 className="header">BLOG PAGE</h1>
-        </Link> 
+        <img src="src\assets\logoblog.jpg" alt="logo" style={{ width: '55px', height: 'auto' }}/>
+            <h1 className="header"></h1>
+            
+            
 
           {props.isLoggedIn ?
           <Link to={"/ProfilePage"}>
@@ -14,12 +18,23 @@ function Header(props) {
           </Link>
           :
             <>
-              <Link to={"/LogInPage"}>LogIn</Link>
-              <Link to={"/SignInPage"}>SignIn</Link>
+              <ul> 
+             <li><Link to={"/"}>Home</Link></li>
+             <li> <Link to={"/"}>New</Link></li>
+             <li><Link to={"/"}>Trend</Link></li>
+             <li> <Link to={"/"}>Bloges</Link></li>
+             <li> <Link to={"/"}>Favorites</Link></li>
+             <button className='btn1'> <Link to={"/LogInPage"}>Login</Link></button>
+             <button className='btn2'> <Link to={"/SignInPage"}>SignIn</Link></button>
+              </ul>
+              
+             
+             
             </>}
-          
 
+            </div>
     </div>
+    
   )
 }
 

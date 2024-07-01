@@ -1,7 +1,7 @@
 import { useState } from "react";
-
 import BlogPost from "./Pages/BlogPost";
 import CreatePost from "./Components/CreatePost";
+import "./Home.css";
 
 const Home = () => {
   const [showCreate, setShowCreate] = useState(false);
@@ -15,6 +15,14 @@ const Home = () => {
 
   return (
     <>
+    <div className="herosection">
+      <video src="src\assets\video-2.mp4" autoPlay loop muted />
+      <h1 className="headerr">HASHTAG BLOG</h1>
+      <p> Welcome to the Public Blog This site is an interactive content sharing <br/> platform aimed at fostering communication and exchange <br/> among people around the world. </p>
+
+      <div className="button">
+        <button className="btn">Read More..</button>
+      </div>
       <div className="contianer">
         <div className="blogs-header">
           <h2 className="posts-hdr">posts</h2>
@@ -43,6 +51,7 @@ const Home = () => {
           views={100}
         />
       </div>
+    </div>
 
       {showCreate && <CreatePost onClose={closeCreate} />}
     </>
