@@ -16,6 +16,7 @@ function Header(props) {
         </Link>
       </div>
 
+
       <div className="right-sec">
         {props.isLoggedIn ? (
           <>

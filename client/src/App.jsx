@@ -3,6 +3,7 @@ import Home from "./Home";
 import Header from "./Components/Header";
 import LogInPage from "./Pages/LogInPage";
 import SignInPage from "./Pages/SignInPage";
+
 import EditProfile from "./Pages/EditProfile";
 
 function App() {
@@ -15,7 +16,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/LogInPage" element={<LogInPage />} />
         <Route path="/SignInPage" element={<SignInPage />} />
+
         <Route path="/EditProfile" element={<EditProfile />} />
+
+        <Route path="/ProfilePage" element={<ProfilePage/>}/>
       </Routes>
     </>
   );
