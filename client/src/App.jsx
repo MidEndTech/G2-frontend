@@ -22,7 +22,7 @@ function App() {
     <>
      <Header isLoggedIn={isLoggedIn} />
       <Routes>
-        <Route path="/HomePage" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/LogInPage" element={<LogInPage />} />
         <Route path="/SignInPage" element={<SignInPage />} />
