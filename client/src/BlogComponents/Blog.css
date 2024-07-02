@@ -1,0 +1,137 @@
+/* BlogDetails.css */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .card {
+    margin: 0;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .avatar {
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .username {
+    margin: 0;
+  }
+  
+  .title {
+    margin: 0;
+  }
+  
+  .post-options {
+    display: flex;
+    align-items: center;
+  }
+  
+  .post-date {
+    margin-right: 10px;
+  }
+  
+  .card-content {
+    margin-bottom: 20px;
+  }
+  
+  .card-like {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .likes-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .like-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0;
+  }
+  
+  .footer-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon {
+    margin-right: 5px;
+  }
+
+  .card-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c0392b;
+  }
+
+  .card-content {
+    margin-bottom: 20px;
+    background-color: lightyellow; /* Debugging style */
+  }
+  
+  .card-content p {
+    color: black; /* Ensure text color is visible */
+    visibility: visible;
+  }
+  

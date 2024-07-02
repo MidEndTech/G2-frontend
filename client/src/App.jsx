@@ -10,15 +10,20 @@ import BlogVe from "./Pages/BlogVe";
 import MostReader from "./Pages/MostReader";
 
 function App() {
+
   const isLoggedIn = false; // this variable for chick the user it's log in or not
+
+
 
   return (
     <>
       <Header isLoggedIn={isLoggedIn} />
       <Routes>
+
         <Route path="/HomePage" element={<HomePage />} />
         <Route path="/BlogVe" element={<BlogVe />} />
         <Route path="/MostReader" element={<MostReader />} />
+
         <Route path="/LogInPage" element={<LogInPage />} />
         <Route path="/SignInPage" element={<SignInPage />} />
         <Route path="/EditProfile" element={<EditProfile />} />

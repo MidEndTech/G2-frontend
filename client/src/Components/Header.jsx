@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import  "./header.css";
 
@@ -12,8 +11,8 @@ function Header(props) {
     
         <img src="src\assets\logoblog.jpg" alt="logo" style={{ width: '55px', height: 'auto' }}/>
             <h1 className="header"></h1>
-            
-            
+
+
 
           {props.isLoggedIn ?
           <Link to={"/ProfilePage"}>
@@ -30,15 +29,18 @@ function Header(props) {
              <button className='btn1'> <Link to={"/LogInPage"}>Login</Link></button>
              <button className='btn2'> <Link to={"/SignInPage"}>SignUp</Link></button>
               </ul>
-              
-             
-             
+
+
+
             </>}
 
             </div>
     </div>
-    
+
   )
 }
 
 export default Header;
+﻿
+Rola
+rola0175

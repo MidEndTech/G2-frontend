@@ -1,16 +1,14 @@
 import { useState } from "react";
 
 const CreatePost = ({ onClose, addPost }) => {
-  // const [title, setTitle] = useState("");
-  // const [body, setBody] = useState("");
-
   const [posts, setPosts] = useState([]);
 
   const [newPost, setNewPosts] = useState({
     userName: "Anonymous",
     title: "",
-    body: "",
+    content: "",
   });
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +19,7 @@ const CreatePost = ({ onClose, addPost }) => {
     e.preventDefault();
     addPost(newPost);
 
-    setNewPosts({ userName: "SPACE", title: "", body: "" });
+    setNewPosts({ userName: "SPACE", title: "", content: "" });
     onClose();
   };
 
@@ -44,9 +42,9 @@ const CreatePost = ({ onClose, addPost }) => {
           <label>Blog body:</label>
           <textarea
             type="text"
-            name="body"
+            name="content"
             required
-            value={newPost.body}
+            value={newPost.content}
             onChange={handleInputChange}
           ></textarea>
           <button type="submit" className="btn-submit">
