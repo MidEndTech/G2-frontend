@@ -1,3 +1,5 @@
+import "./Blog.css";
+
 const BlogPostPage = ({
   userName,
   title,
@@ -6,12 +8,6 @@ const BlogPostPage = ({
   initialLike,
   views,
 }) => {
-  // const [likes, setLikes] = useState(0);
-
-  // const handleLikes = () => {
-  //   setLikes(likes + 1);
-  // };
-
   return (
     <form>
       <div className="card">
@@ -25,6 +21,9 @@ const BlogPostPage = ({
           </div>
           <div className="post-options">
             <span className="post-date">{date}</span>
+            <button type="button" className="post-options-btn">
+              ...
+            </button>
           </div>
         </div>
         <div className="card-content">
@@ -32,7 +31,9 @@ const BlogPostPage = ({
         </div>
         <div className="card-like">
           <div className="likes-item">
-            <button className="like-icon"> ♡</button>
+            <button type="button" className="like-icon">
+              ♡
+            </button>
           </div>
           <div className="footer-item">
             <span className="icon"> 📊</span>
@@ -47,4 +48,6 @@ const BlogPostPage = ({
   );
 };
 
+
 export default BlogPostPage;
+
