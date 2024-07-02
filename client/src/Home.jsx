@@ -1,7 +1,7 @@
 import { useState } from "react";
 import BlogPost from "./Pages/BlogPost";
 import CreatePost from "./Components/CreatePost";
-import "./Home.css";
+import "./postHome.css";
 
 const Home = () => {
   const [showCreate, setShowCreate] = useState(false);
@@ -24,6 +24,9 @@ const Home = () => {
       initialLike: 0,
       views: 100,
     },
+
+    
+   
   ]);
 
   const addPost = (newPost) => {
@@ -39,21 +42,15 @@ const Home = () => {
 
   return (
     <>
-    <div className="herosection">
-      <video src="src\assets\video-2.mp4" autoPlay loop muted />
-      <h1 className="headerr">HASHTAG BLOG</h1>
-      <p> Welcome to the Public Blog This site is an interactive content sharing <br/> platform aimed at fostering communication and exchange <br/> among people around the world. </p>
-
-      <div className="button">
-        <button className="btn">Read More..</button>
-      </div>
       <div className="contianer">
         <div className="blogs-header">
-          <h2 className="posts-hdr">Posts</h2>
+          <h2 className="posts-hdr">Blog</h2>
           <a href="#" className="btn-crt" onClick={openCreate}>
             Create
           </a>
         </div>
+        <section className="blogs">
+          <div className="posts1" >
         {posts.map((post, key) => (
           <BlogPost
             key={key}
@@ -65,8 +62,11 @@ const Home = () => {
             views={post.views}
           />
         ))}
+        </div> 
+        </section>
       </div>
-    </div>
+      
+    
 
       {showCreate && <CreatePost onClose={closeCreate} />}
     </>

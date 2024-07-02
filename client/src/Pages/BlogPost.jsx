@@ -25,7 +25,6 @@ const BlogPostPage = ({
           </div>
           <div className="post-options">
             <span className="post-date">{date}</span>
-            <span className="options-icon">⋮</span>
           </div>
         </div>
         <div className="card-content">
@@ -39,10 +38,13 @@ const BlogPostPage = ({
             <span className="icon"> 📊</span>
             <span>{views}</span>
           </div>
+          <div className="footer-item">
+            <button className="btn-details">Details</button>
+          </div>
         </div>
       </div>
     </form>
   );
 };
- 
+
 export default BlogPostPage;
