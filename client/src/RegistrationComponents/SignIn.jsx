@@ -1,6 +1,8 @@
 // (c)Musab Alsayed / MID-END
 
 import React, { useEffect, useReducer } from 'react'
+import "./signIn.css"
+
 
 function SignIn() {
 
@@ -90,10 +92,10 @@ const handleChange = (e) =>{
 
 return (
         <div>
-            <h1>Create Your Account</h1>
-            {signInState.errors.Email && <p style={{color:"red"}}>{signInState.errors.Email}</p>}
-            {signInState.errors.Password && <p style={{color:"red"}}>{signInState.errors.Password}</p>}
-                <form onSubmit={handleSubmit}>
+            <h1 className='h1signup'>Create Your Account</h1>
+            {signInState.errors.Email && <p style={{color:"red",textAlign:"center"}}>{signInState.errors.Email}</p>}
+            {signInState.errors.Password && <p style={{color:"red",textAlign:"center"}}>{signInState.errors.Password}</p>}
+                <form className='formSinup' onSubmit={handleSubmit}>
                     <label htmlFor="Email">
                             Enter your emaill address
                         <input type="email" name="Email" id="Email" onChange={handleChange} value={signInState.Email}/>

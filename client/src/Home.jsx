@@ -1,9 +1,13 @@
 import { useState } from "react";
-import BlogPost from "./BlogComponents/BlogPost";
-import CreatePost from "./BlogComponents/CreatePost";
+
 import BlogDetails from "./BlogComponents/BlogDetails";
 import EditPost from "./BlogComponents/EditBlog";
 import "./Home.css";
+
+import BlogPost from "./Pages/BlogPost";
+import CreatePost from "./Components/CreatePost";
+import "./postHome.css";
+
 
 const Home = () => {
   const [showCreate, setShowCreate] = useState(false);
@@ -18,6 +22,9 @@ const Home = () => {
       initialLike: 0,
       views: 100,
     },
+
+    
+   
   ]);
 
   const [editingPost, setEditingPost] = useState(null);
@@ -98,6 +105,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+
 
       {showCreate && <CreatePost onClose={closeCreate} addPost={addPost} />}
       {selectedPost && (
