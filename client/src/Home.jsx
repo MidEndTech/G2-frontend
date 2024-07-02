@@ -1,7 +1,7 @@
 import { useState } from "react";
 import BlogPost from "./Pages/BlogPost";
-import CreatePost from "./Components/CreatePost";
 import "./postHome.css";
+
 
 const Home = () => {
   const [showCreate, setShowCreate] = useState(false);
@@ -33,22 +33,9 @@ const Home = () => {
     // const date = new Date().toISOString().split("T")[0];
     setPosts([...posts, { ...newPost, initialLike: 0, views: 0 }]);
   };
-  const openCreate = () => {
-    setShowCreate(true);
-  };
-  const closeCreate = () => {
-    setShowCreate(false);
-  };
-
+ 
   return (
     <>
-      <div className="contianer">
-        <div className="blogs-header">
-          <h2 className="posts-hdr">Blog</h2>
-          <a href="#" className="btn-crt" onClick={openCreate}>
-            Create
-          </a>
-        </div>
         <section className="blogs">
           <div className="posts1" >
         {posts.map((post, key) => (
@@ -64,11 +51,6 @@ const Home = () => {
         ))}
         </div> 
         </section>
-      </div>
-      
-    
-
-      {showCreate && <CreatePost onClose={closeCreate} />}
     </>
   );
 };

@@ -10,8 +10,9 @@
   .posts1 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
   }
+  
   .blog .posts1 {
     width: 32%;
     margin-bottom: 2rem;

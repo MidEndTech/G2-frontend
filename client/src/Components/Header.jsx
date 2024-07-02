@@ -9,7 +9,7 @@ function Header(props) {
   return (
     <div className='buttons'>
     <div className="main">
-
+    
         <img src="src\assets\logoblog.jpg" alt="logo" style={{ width: '55px', height: 'auto' }}/>
             <h1 className="header"></h1>
             
@@ -24,9 +24,9 @@ function Header(props) {
             <>
               <ul> 
              <li><Link to={"/HomePage"}>Home</Link></li>
-             <li> <Link to={"/"}>Trend of Readers</Link></li>
+             <li> <Link to={"/MostReader"}>Trend of Readers</Link></li>
              <li><Link to={"/Leaderbords"}>Trend of likes</Link></li>
-             <li> <Link to={"/Home"}>Bloges</Link></li>
+             <li> <Link to={"/BlogVe"}>Bloges</Link></li>
              <button className='btn1'> <Link to={"/LogInPage"}>Login</Link></button>
              <button className='btn2'> <Link to={"/SignInPage"}>SignUp</Link></button>
               </ul>
