@@ -4,8 +4,10 @@ import BlogDetails from "./BlogComponents/BlogDetails";
 import EditPost from "./BlogComponents/EditBlog";
 import "./Pages/Home.css";
 
+
 import BlogPost from "./BlogComponents/BlogPost";
 import CreatePost from "./BlogComponents/CreatePost";
+
 import "./postHome.css";
 
 const Home = () => {
@@ -32,6 +34,7 @@ const Home = () => {
     ]);
   };
 
+
   // axios({
   //   method: 'post',
   //   url: '/login',
@@ -40,6 +43,7 @@ const Home = () => {
   //     lastName: 'Williams'
   //   }
   // });
+
 
   const updatePost = (updatedPost) => {
     setPosts(
@@ -98,7 +102,7 @@ const Home = () => {
           </div>
         ))}
       </div>
-
+  
       {showCreate && <CreatePost onClose={closeCreate} addPost={addPost} />}
       {selectedPost && (
         <BlogDetails
@@ -118,5 +122,3 @@ const Home = () => {
     </>
   );
 };
-
-export default Home;
