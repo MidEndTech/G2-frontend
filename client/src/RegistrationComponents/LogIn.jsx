@@ -1,14 +1,22 @@
-// (c)Musab Alsayed / MID-END
-
 import { useReducer } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import Cookie from "js-cookie"
+
 import "./login.css";
+import Cookies from "js-cookie";
+
+
 
 function LogIn() {
+
+  const navigate = useNavigate();
+
   //here put a initial value for inputs
   const initState = {
-    Email: "",
-    Password: "",
+    email: "",
+    password: "",
   };
 
   //This function for reduc the inputs to variable called state
@@ -33,36 +41,63 @@ function LogIn() {
   };
 
   //the finale function whene submit and atake the variable for back end
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log(logInState); // this state has informtions of log in
+     const res = await fetch("http://192.168.8.32:8000/api/login",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify(logInState)
+      });
+        if(res.status === 401){
+          navigate("/", { replace: true });
+        }else{
+          const data = await res.json()
+          console.log(data)
 
-    //aftar submit open console for check the use informtions
+          Cookies.set("accessToken", accessToken, { expires: 2 });
+
+          navigate("/", { replace: true });
+        }
+
+      //     then((res)=>{
+      //     if(res.status === 200){
+      //       alert("success")
+      //   }
+      // }).then((data) =>{
+      //   console.log(data)
+      // })
+      // .catch((e) =>{
+      //   console.log(e)
+      // })
   };
+
+
 
   return (
     <div>
       
       <h1 className="login1">Login</h1>
       <form className="login-form" onSubmit={handleSubmit}>
-        <label htmlFor="Email">
+        <label htmlFor="email">
           Email:
           <input
             type="email"
-            name="Email"
-            id="Email"
-            value={logInState.Email}
+            name="email"
+            id="email"
+            value={logInState.email}
             onChange={handleChange}
           />
         </label>
 
-        <label htmlFor="Password">
+        <label htmlFor="password">
           Password
           <input
             type="password"
-            name="Password"
-            id="Password"
-            value={logInState.Password}
+            name="password"
+            id="password"
+            value={logInState.password}
             onChange={handleChange}
           />
         </label>
