@@ -1,15 +1,14 @@
 import React, { useState, useRef } from 'react';
-import Home from '../Home';
+import BlogVe from "./BlogVe";
 import "./Home.css";
 
 function HomePage() {
-  const [showHome, setShowHome] = useState(false);
-  const homeRef = useRef(null);
+  const [showBlogVe, setShowBlogVe] = useState(false);
+  const blogVeRef = useRef(null);
 
   const handleReadMoreClick = () => {
-    setShowHome(true);
-    // اسحب العنصر إلى موقعه الصحيح في الصفحة
-    homeRef.current.scrollIntoView({ behavior: 'smooth' });
+    setShowBlogVe(true);
+    blogVeRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -28,14 +27,11 @@ function HomePage() {
             Read More..
           </button>
         </div>
-        
       </div>
 
-        <div ref={homeRef}>
-          <Home id="home-section" />
-        </div>
-     
-      
+      <div ref={blogVeRef}>
+        <BlogVe id="blog-ve-section" />
+      </div>
     </div>
   );
 }

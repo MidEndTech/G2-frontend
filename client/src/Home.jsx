@@ -5,7 +5,6 @@ import EditPost from "./BlogComponents/EditBlog";
 import "./Home.css";
 
 import BlogPost from "./Pages/BlogPost";
-import CreatePost from "./Components/CreatePost";
 import "./postHome.css";
 
 
@@ -35,6 +34,7 @@ const Home = () => {
       { ...newPost, id: posts.length + 1, initialLike: 0, views: 0 },
     ]);
   };
+
 
   const updatePost = (updatedPost) => {
     setPosts(
@@ -73,17 +73,7 @@ const Home = () => {
   };
   return (
     <>
-      <div className="herosection">
-        <video src="src/assets/video-2.mp4" autoPlay loop muted />
-        <h1 className="headerr">HASHTAG BLOG</h1>
-        <p>
-          Welcome to the Public Blog This site is an interactive content
-          sharing...
-        </p>
-
-        <div className="button">
-          <button className="btn">Read More..</button>
-        </div>
+   
         <div className="container">
           <div className="blogs-header">
             <h2 className="posts-hdr">Posts</h2>
@@ -123,6 +113,7 @@ const Home = () => {
           savePost={updatePost}
         />
       )}
+
     </>
   );
 };

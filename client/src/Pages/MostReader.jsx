@@ -1,11 +1,12 @@
-import React from 'react';
+
+import React from 'react'
 import './cardleaderpage.css';
 import Home from '../Home';
 
-
-function cardItem() {
+function MostReader() {
   return (
     <div className='cards'>
+        <img src="src\assets\Teal.png" alt="logo" style={{ marginTop: '-80px', marginBottom: '-50px', width: '500px', height: "300px",display: 'block', marginLeft: 'auto', marginRight: '420px' }}/>
       <h1>10 blogs with the highest number of Readers!</h1>
       <div className='cards__container'>
         <div className='cards__wrapper'>
@@ -19,4 +20,4 @@ function cardItem() {
   );
 }
 
-export default cardItem;
+export default MostReader
