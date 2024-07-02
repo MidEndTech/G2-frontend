@@ -23,11 +23,10 @@ function Header(props) {
           :
             <>
               <ul> 
-             <li><Link to={"/"}>Home</Link></li>
-             <li> <Link to={"/"}>New</Link></li>
-             <li><Link to={"/"}>Trend</Link></li>
-             <li> <Link to={"/"}>Bloges</Link></li>
-             <li> <Link to={"/"}>Favorites</Link></li>
+             <li><Link to={"/HomePage"}>Home</Link></li>
+             <li> <Link to={"/"}>Trend of Readers</Link></li>
+             <li><Link to={"/Leaderbords"}>Trend of likes</Link></li>
+             <li> <Link to={"/Home"}>Bloges</Link></li>
              <button className='btn1'> <Link to={"/LogInPage"}>Login</Link></button>
              <button className='btn2'> <Link to={"/SignInPage"}>SignUp</Link></button>
               </ul>

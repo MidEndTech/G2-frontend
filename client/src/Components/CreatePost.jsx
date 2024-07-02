@@ -32,7 +32,7 @@ const CreatePost = ({ onClose, addPost }) => {
           &times;
         </span>
         <h1 className="blog-crt-header">Create Post</h1>
-        <form onSubmit={handleSubmit}>
+        <form className="form1" onSubmit={handleSubmit}>
           <label>Subject</label>
           <input
             type="text"
@@ -50,7 +50,7 @@ const CreatePost = ({ onClose, addPost }) => {
             onChange={handleInputChange}
           ></textarea>
           <button type="submit" className="btn-submit">
-            Submitg
+            Submit
           </button>
         </form>
       </div>
