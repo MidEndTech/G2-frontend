@@ -1,6 +1,9 @@
 // (c)Musab Alsayed / MID-END
 
 import React, { useEffect, useReducer } from 'react'
+import "./signIn.css"
+import Axios from "axios"
+
 
 function SignIn() {
 
@@ -8,10 +11,10 @@ function SignIn() {
 
  //here put a initial value for inputs
  const initState = {
-    Email:"",
-    Password:"",
-    FirstName:"",
-    LastName:"",
+    email:"",
+    password:"",
+    name:"",
+    lastname:"",
     errors:{},
 }
 
@@ -33,21 +36,21 @@ const validateField = (name, value) => {
     const errors = {...signInState.errors};
     switch (name) {
 
-        case 'Email':
+        case 'email':
             if (!/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(value)){
-                errors.Email = "your email is not falid ";
+                errors.email = "your email is not falid ";
             }else{
-                delete errors.Email
+                delete errors.email
             }
             break;
 
-        case 'Password':
+        case 'password':
             if (value.length < 8) {
-                errors.Password = "Password must be at least 8 characters";
+                errors.password = "password must be at least 8 characters";
             } else if (!/^(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$/.test(value)) {
-                errors.Password = "The password must contain an uppercase letter, a number and at least one special character, for example: ! @#?";
+                errors.password = "The password must contain an uppercase letter, a number and at least one special character, for example: ! @#?";
             } else {
-                delete errors.Password;
+                delete errors.password;
             }
             break;
 
@@ -73,45 +76,63 @@ const handleChange = (e) =>{
 }
 
 
-    //the finale function whene submit and atake the variable for back end
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        // Validate fields
         const errors = validateField();
         if (Object.keys(errors).length > 0) {
             dispatch({ type: 'setErrors', errors });
             return;
         }
+        
+        try {
+            // Make the POST request using Axios
+            const response = await Axios.post("http://192.168.8.32:8000/api/register", {
+                name: signInState.name,
+                lastname: signInState.lastname,
+                email: signInState.email,
+                password: signInState.password,
+            });
+    
+            // Handle response data
+            console.log(response.data);
+            const data = await response.json()
 
-        console.log(signInState)
-    }
-
-
-
+            
+            // Optionally, you can dispatch success actions or handle UI state here
+        } catch (error) {
+            // Handle error
+            console.error('Error registering user:', error);
+            // Optionally, dispatch error actions or handle UI state for errors
+        }
+    };
+    
 
 return (
         <div>
-            <h1>Create Your Account</h1>
-            {signInState.errors.Email && <p style={{color:"red"}}>{signInState.errors.Email}</p>}
-            {signInState.errors.Password && <p style={{color:"red"}}>{signInState.errors.Password}</p>}
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="Email">
+            <h1 className='h1signup'>Create Your Account</h1>
+            {signInState.errors.email && <p style={{color:"red",textAlign:"center"}}>{signInState.errors.email}</p>}
+            {signInState.errors.password && <p style={{color:"red",textAlign:"center"}}>{signInState.errors.password}</p>}
+                <form className='formSinup' onSubmit={handleSubmit}>
+                    <label htmlFor="email">
                             Enter your emaill address
-                        <input type="email" name="Email" id="Email" onChange={handleChange} value={signInState.Email}/>
+                        <input type="email" name="email" id="email" onChange={handleChange} value={signInState.email}/>
                     </label>
 
-                    <label htmlFor="Password">
+                    <label htmlFor="password">
                             Enter your password
-                        <input type="password" name="Password" id="Password" onChange={handleChange} value={signInState.Password}/>
+                        <input type="password" name="password" id="password" onChange={handleChange} value={signInState.password}/>
                     </label>
 
-                    <label htmlFor='FirstName'>
+                    <label htmlFor='name'>
                         First name
-                        <input type="text" name="FirstName" id='FirstName' onChange={handleChange} value={signInState.FirstName}/>
+                        <input type="text" name="name" id='name' onChange={handleChange} value={signInState.name}/>
                     </label>
 
-                    <label htmlFor='LastName'>
+                    <label htmlFor='lastname'>
                         Last name
-                        <input type="text" name="LastName" id='LastName' onChange={handleChange} value={signInState.LastName}/>
+                        <input type="text" name="lastname" id='lastname' onChange={handleChange} value={signInState.lastname}/>
                     </label>
 
                     <button>Sign UP</button>

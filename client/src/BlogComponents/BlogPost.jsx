@@ -39,10 +39,15 @@ const BlogPostPage = ({
             <span className="icon"> 📊</span>
             <span>{views}</span>
           </div>
+          <div className="footer-item">
+            <button className="btn-details">Details</button>
+          </div>
         </div>
       </div>
     </form>
   );
 };
 
+
 export default BlogPostPage;
+
