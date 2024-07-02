@@ -2,12 +2,11 @@ import { useState } from "react";
 
 import BlogDetails from "./BlogComponents/BlogDetails";
 import EditPost from "./BlogComponents/EditBlog";
-import "./Home.css";
+import "./Pages/Home.css";
 
-import BlogPost from "./Pages/BlogPost";
-import CreatePost from "./Components/CreatePost";
+import BlogPost from "./BlogComponents/BlogPost";
+import CreatePost from "./BlogComponents/CreatePost";
 import "./postHome.css";
-
 
 const Home = () => {
   const [showCreate, setShowCreate] = useState(false);
@@ -22,9 +21,6 @@ const Home = () => {
       initialLike: 0,
       views: 100,
     },
-
-    
-   
   ]);
 
   const [editingPost, setEditingPost] = useState(null);
@@ -35,6 +31,15 @@ const Home = () => {
       { ...newPost, id: posts.length + 1, initialLike: 0, views: 0 },
     ]);
   };
+
+  // axios({
+  //   method: 'post',
+  //   url: '/login',
+  //   data: {
+  //     firstName: 'Finn',
+  //     lastName: 'Williams'
+  //   }
+  // });
 
   const updatePost = (updatedPost) => {
     setPosts(
@@ -73,39 +78,26 @@ const Home = () => {
   };
   return (
     <>
-      <div className="herosection">
-        <video src="src/assets/video-2.mp4" autoPlay loop muted />
-        <h1 className="headerr">HASHTAG BLOG</h1>
-        <p>
-          Welcome to the Public Blog This site is an interactive content
-          sharing...
-        </p>
-
-        <div className="button">
-          <button className="btn">Read More..</button>
+      <div className="container">
+        <div className="blogs-header">
+          <h2 className="posts-hdr">Posts</h2>
+          <a href="#" className="btn-crt" onClick={openCreate}>
+            Create
+          </a>
         </div>
-        <div className="container">
-          <div className="blogs-header">
-            <h2 className="posts-hdr">Posts</h2>
-            <a href="#" className="btn-crt" onClick={openCreate}>
-              Create
-            </a>
+        {posts.map((post) => (
+          <div key={post.id} onClick={() => openDetails(post)}>
+            <BlogPost
+              userName={post.userName}
+              title={post.title}
+              date={post.date}
+              content={post.content}
+              initialLike={post.initialLike}
+              views={post.views}
+            />
           </div>
-          {posts.map((post) => (
-            <div key={post.id} onClick={() => openDetails(post)}>
-              <BlogPost
-                userName={post.userName}
-                title={post.title}
-                date={post.date}
-                content={post.content}
-                initialLike={post.initialLike}
-                views={post.views}
-              />
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
-
 
       {showCreate && <CreatePost onClose={closeCreate} addPost={addPost} />}
       {selectedPost && (

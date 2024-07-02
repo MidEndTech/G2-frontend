@@ -41,6 +41,3 @@ function Header(props) {
 }
 
 export default Header;
-﻿
-Rola
-rola0175

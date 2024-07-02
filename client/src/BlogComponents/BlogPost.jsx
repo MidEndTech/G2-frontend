@@ -40,7 +40,6 @@ const BlogPostPage = ({
             <span>{views}</span>
           </div>
           <div className="footer-item">
-            <button className="btn-details">Details</button>
           </div>
         </div>
       </div>
