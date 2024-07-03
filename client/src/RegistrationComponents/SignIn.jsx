@@ -94,7 +94,7 @@ function SignIn() {
     try {
       // Make the POST request using Axios
       //http://${host}:${port}/api/register`
-      const response = await Axios.post('http://192.168.8.23:8000/api/register', {
+      const response = await Axios.post('', {
         name: signInState.name,
         lastname: signInState.lastname,
         email: signInState.email,
