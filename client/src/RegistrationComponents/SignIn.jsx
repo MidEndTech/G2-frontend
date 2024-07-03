@@ -49,12 +49,7 @@ const reducer = (signInState,action) => {
       case "password":
         if (value.length < 8) {
           errors.password = "password must be at least 8 characters";
-        } else if (
-          !/^(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$/.test(value)
-        ) {
-          errors.password =
-            "The password must contain an uppercase letter, a number and at least one special character, for example: ! @#?";
-        } else {
+        }else {
           delete errors.password;
         }
         break;
@@ -93,7 +88,7 @@ const reducer = (signInState,action) => {
         
         try {
             // Make the POST request using Axios
-            const response = await Axios.post("http://192.168.8.23:8000/api/register", {
+            const response = await Axios.post("https://group-two.midend.tech/api/register", {
                 name: signInState.name,
                 lastname: signInState.lastname,
                 email: signInState.email,
