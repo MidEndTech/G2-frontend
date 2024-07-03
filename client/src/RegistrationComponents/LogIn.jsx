@@ -1,12 +1,14 @@
 import { useReducer } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+
 import "../styles/login.css";
 import Cookies from "js-cookie";
 
-const url  = import.meta.env.VITE_SERVER_URL;
-
 function LogIn() {
+  const host = import.meta.env.VITE_SERVER_HOST;
+  const port = import.meta.env.VITE_SERVER_PORT;
+
   const navigate = useNavigate();
 
   //here put a initial value for inputs
@@ -36,6 +38,8 @@ function LogIn() {
     });
   };
 
+
+  //`http://${host}:${port}/api/login`
   //the finale function whene submit and atake the variable for back end
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,16 +51,26 @@ function LogIn() {
       body: JSON.stringify(logInState),
     });
     if (res.status === 401) {
-      alert("Invalid email or password. Please try again");
-    } else if (res.status === 200) {
+      alert("falid password or email");
+    } else {
       const data = await res.json();
       console.log(data);
-      const accessToken = data.access_token;
+      const accessToken = data.accessToken;
       Cookies.set("accessToken", accessToken, { expires: 2 });
+
       navigate("/", { replace: true });
-    } else {
-      alert("Something went wrong! Please try again");
     }
+
+    //     then((res)=>{
+    //     if(res.status === 200){
+    //       alert("success")
+    //   }
+    // }).then((data) =>{
+    //   console.log(data)
+    // })
+    // .catch((e) =>{
+    //   console.log(e)
+    // })
   };
 
   return (
