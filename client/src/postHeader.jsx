@@ -1,12 +1,24 @@
 import React, { useState } from "react";
 import CreatePost from "./BlogComponents/CreatePost";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const PostHeader = () => {
   const [showCreate, setShowCreate] = useState(false);
+  const navigate = useNavigate();
 
-  const openCreate = () => {
-    setShowCreate(true);
-  };
+
+  const user = Cookies.get("accessToken");
+
+  
+    const openCreate = () => {
+    if(user !== undefined){
+        setShowCreate(true);
+      }else{
+        navigate("/LogInPage", { replace: true });
+      } 
+    };
+
 
   const closeCreate = () => {
     setShowCreate(false);
