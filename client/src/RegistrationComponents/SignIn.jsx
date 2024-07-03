@@ -1,5 +1,6 @@
 // (c)Musab Alsayed / MID-END
 import React, { useEffect, useReducer } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/signIn.css"
 import Axios from "axios"
 
@@ -7,6 +8,7 @@ import Axios from "axios"
 function SignIn() {
 
     //************ i will use this functions leaters ************************************************************************
+    const navigate = useNavigate();
 //here put a initial value for inputs
  const initState = {
     email:"",
@@ -97,8 +99,9 @@ const reducer = (signInState,action) => {
     
             // Handle response data
             console.log(response.data);
-            const data = await response.json()
-
+            // const data = await response.json()
+            navigate("/LogInPage", { replace: true });
+            
             
             // Optionally, you can dispatch success actions or handle UI state here
         } catch (error) {
