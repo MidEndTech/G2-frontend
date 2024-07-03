@@ -1,16 +1,13 @@
 import { useReducer } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
-import Cookie from "js-cookie"
-
-import "./login.css";
+import "../styles/login.css";
 import Cookies from "js-cookie";
 
-
+const host = import.meta.env.VITE_SERVER_HOST;
+const port = import.meta.env.VITE_SERVER_PORT;
 
 function LogIn() {
-
   const navigate = useNavigate();
 
   //here put a initial value for inputs
@@ -41,43 +38,30 @@ function LogIn() {
   };
 
   //the finale function whene submit and atake the variable for back end
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-     const res = await fetch("http://192.168.8.32:8000/api/login",{
-        method:"POST",
-        headers:{
-          "Content-Type":"application/json"
-        },
-        body:JSON.stringify(logInState)
-      });
-        if(res.status === 401){
-          navigate("/", { replace: true });
-        }else{
-          const data = await res.json()
-          console.log(data)
-
-          Cookies.set("accessToken", accessToken, { expires: 2 });
-
-          navigate("/", { replace: true });
-        }
-
-      //     then((res)=>{
-      //     if(res.status === 200){
-      //       alert("success")
-      //   }
-      // }).then((data) =>{
-      //   console.log(data)
-      // })
-      // .catch((e) =>{
-      //   console.log(e)
-      // })
+    const res = await fetch(`http://${host}:${port}/api/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(logInState),
+    });
+    if (res.status === 401) {
+      alert("Invalid email or password. Please try again");
+    } else if (res.status === 200) {
+      const data = await res.json();
+      console.log(data);
+      const accessToken = data.access_token;
+      Cookies.set("accessToken", accessToken, { expires: 2 });
+      navigate("/", { replace: true });
+    } else {
+      alert("Something went wrong! Please try again");
+    }
   };
-
-
 
   return (
     <div>
-      
       <h1 className="login1">Login</h1>
       <form className="login-form" onSubmit={handleSubmit}>
         <label htmlFor="email">
@@ -102,10 +86,14 @@ function LogIn() {
           />
         </label>
 
-        <button className="login-btn" style={{display: 'block',
-    margin: '1.5rem auto',}}>Login</button>
+        <button
+          className="login-btn"
+          style={{ display: "block", margin: "1.5rem auto" }}
+        >
+          Login
+        </button>
       </form>
-      
+
       <p className="login2" style={{ textAlign: "center" }}>
         Not a member?<Link to={"/SignInPage"}>SignUp</Link>
       </p>

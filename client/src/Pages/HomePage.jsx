@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import BlogVe from "./BlogVe";
-import "./Home.css";
+import "../styles/Home.css";
 
 function HomePage() {
   const [showBlogVe, setShowBlogVe] = useState(false);

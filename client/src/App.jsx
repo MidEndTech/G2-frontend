@@ -20,7 +20,7 @@ function App() {
       <Header isLoggedIn={isLoggedIn} />
       <Routes>
 
-        <Route path="/HomePage" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/BlogVe" element={<BlogVe />} />
         <Route path="/MostReader" element={<MostReader />} />
 

@@ -1,15 +1,13 @@
 // (c)Musab Alsayed / MID-END
 
 import React, { useEffect, useReducer } from 'react'
-import "./signIn.css"
+import "../styles/signIn.css"
 import Axios from "axios"
 
 
 function SignIn() {
-
-//************ i will use this functions leaters ************************************************************************
-
- //here put a initial value for inputs
+    //************ i will use this functions leaters ************************************************************************
+//here put a initial value for inputs
  const initState = {
     email:"",
     password:"",
