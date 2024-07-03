@@ -12,7 +12,7 @@ function Banner() {
     console.log(user)
 
     useEffect(()=>{
-      Axios.get("http://192.168.8.23:8000/api/profile/",{
+      Axios.get("https://group-two.midend.tech/api/profile/",{
         headers:{Authorization:`Bearer ${user}`}
       }).then((res) =>{
           setData(res.data.data);
