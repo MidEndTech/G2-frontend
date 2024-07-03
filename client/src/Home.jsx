@@ -4,7 +4,6 @@ import Cookies from "js-cookie";
 import BlogDetails from "./BlogComponents/BlogDetails";
 import EditPost from "./BlogComponents/EditBlog";
 
-
 import BlogPost from "./BlogComponents/BlogPost";
 import CreatePost from "./BlogComponents/CreatePost";
 
@@ -14,7 +13,6 @@ import "./styles/postHome.css";
 const Home = () => {
   const host = import.meta.env.VITE_SERVER_HOST;
   const port = import.meta.env.VITE_SERVER_PORT;
-
 
   const [showCreate, setShowCreate] = useState(false);
   const [selectedPost, setSelectedPost] = useState(null);
@@ -41,20 +39,20 @@ const Home = () => {
   //   ]);
   // };
 
-  // showPosts
+  // showPosts`http://${host}:${port}/api/${id}`
   const showPosts = async (id) => {
     const token = Cookies.get("accessToken");
-    const res = await fetch(`http://${host}:${port}/api/${id}`, { 
+    const res = await fetch("", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-  }
-
+  };
+  // `http://${host}:${port}/api/store`
   const addPost = async (newPost) => {
     const token = Cookies.get("accessToken");
-    const res = await fetch(`http://${host}:${port}/api/store`, {
+    const res = await fetch("http://192.168.8.23:8000/api/store", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,6 +67,7 @@ const Home = () => {
         ...posts,
         { ...createdPost, id: posts.length + 1, initialLike: 0, views: 0 },
       ]);
+      console.log("Created post:", createdPost);
     } else {
       console.log("Failed to create post");
     }
@@ -80,17 +79,22 @@ const Home = () => {
   //   );
   //   setEditingPost(null);
   // };
+
+  // `http://${host}:${port}/api/${updatedPost.id}
   const updatePost = async (updatedPost) => {
     const token = Cookies.get("accessToken");
-    const res = await fetch(`http://${host}:${port}/api/${updatedPost.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(updatedPost),
-    });
-x
+    const res = await fetch(
+      `http://192.168.8.23:8000/api/edit/${updatedPost}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(updatedPost),
+      }
+    );
+    x;
     if (res.ok) {
       const newPost = await res.json();
       setPosts(
@@ -102,7 +106,7 @@ x
     }
   };
 
-  // // async function likeCounter(postId) 
+  // // async function likeCounter(postId)
 
   // const likeCounter = async (postId) => {
   //   const token = Cookies.get("accessToken");
@@ -115,8 +119,6 @@ x
   //     },
   //     body: JSON.stringify({ postId }),
   //   });
-
-  
 
   const openCreate = () => {
     setShowCreate(true);
@@ -147,9 +149,10 @@ x
   //   setSelectedPost(null);
   // };
 
+  // `http://${host}:${port}/api/delete/${postId}`
   const deletePost = async (postId) => {
     const token = Cookies.get("accessToken");
-    const res = await fetch(`http://${host}:${port}/api/delete/${postId}`, {
+    const res = await fetch(`http://192.168.8.23:80000/api/delete/${postId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -166,23 +169,30 @@ x
 
   return (
     <>
-        <section className="blogs">
-          <div className="posts1" >
-        {posts.map((post, key) => (
-           <div key={post.id} onClick={() => openDetails(post)}>
-          <BlogPost
-            userName={post.userName}
-            title={post.title}
-            date={post.date}
-            content={post.content}
-            initialLike={post.initialLike}
-            views={post.views}
-          />
-          </div> 
-        ))}
-        </div> 
-        </section>
-      {showCreate && <CreatePost onClose={closeCreate} addPost={addPost} />}
+      <section className="blogs">
+        <div className="posts1">
+          {posts.map((post, key) => (
+            <div key={post.id} onClick={() => openDetails(post)}>
+              <BlogPost
+                userName={post.userName}
+                title={post.title}
+                date={post.date}
+                content={post.content}
+                initialLike={post.initialLike}
+                views={post.views}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+      {showCreate ? null : (
+        <button className="create-post" onClick={openCreate}>
+          Create Post
+        </button>
+      )}
+      {!showCreate &&<CreatePost addPost={addPost} onClose={closeCreate} /> }
+
+      {/* <CreatePost onClose={closeCreate} addPost={addPost} /> */}
       {selectedPost && (
         <BlogDetails
           post={selectedPost}
@@ -198,10 +208,7 @@ x
           savePost={updatePost}
         />
       )}
-
     </>
-
-    
   );
 };
 

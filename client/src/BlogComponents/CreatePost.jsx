@@ -1,14 +1,10 @@
 import { useState } from "react";
 
-const CreatePost =  ({ onClose, addPost }) => {
-  const [posts, setPosts] = useState([]);
-
+const CreatePost = ({ onClose, addPost }) => {
   const [newPost, setNewPosts] = useState({
-    userName: "Anonymous",
-    title: "",
+    subject: "",
     content: "",
   });
-
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -19,9 +15,10 @@ const CreatePost =  ({ onClose, addPost }) => {
     e.preventDefault();
     addPost(newPost);
 
-    setNewPosts({ userName: "SPACE", title: "", content: "" });
+    setNewPosts({ title: "", content: "" });
     onClose();
   };
+
 
   return (
     <div className="create">
