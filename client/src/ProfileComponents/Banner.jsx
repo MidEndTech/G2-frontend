@@ -12,6 +12,7 @@ function Banner() {
     console.log(user)
 
     useEffect(()=>{
+
       Axios.get("https://group-two.midend.tech/api/profile/",{
         headers:{Authorization:`Bearer ${user}`}
       }).then((res) =>{

@@ -2,32 +2,20 @@ import { useState } from "react";
 import BlogPost from "./BlogComponents/BlogPost";
 import CreatePost from "./BlogComponents/CreatePost";
 import "./styles/postHome.css";
+import { useEffect } from "react";
 
 const Home = () => {
   const [showCreate, setShowCreate] = useState(false);
-  const [posts, setPosts] = useState([
-    {
-      userName: "John Doe",
-      title: "My first blog post",
-      date: "2021-08-01",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo.",
-      initialLike: 0,
-      views: 100,
-    },
-    {
-      userName: "BOB",
-      title: "My first blog post",
-      date: "2021-08-01",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo.",
-      initialLike: 0,
-      views: 100,
-    },
-    
-    
-   
-  ]);
+  const [posts, setPosts] = useState(null);
+
+useEffect(() => {
+fetch("https://group-two.midend.tech/api/blogLike").then((res) => {
+  return res.json();})
+  .then((data) => {
+   console.log(data);
+});
+  
+  }, []);
 
   const addPost = (newPost) => {
     // const date = new Date().toISOString().split("T")[0];
@@ -45,7 +33,7 @@ const Home = () => {
       <div className="contianer">
         <section className="blogs">
           <div className="posts1" >
-        {posts.map((post, key) => (
+        {posts? posts.map((post, key) => (
           <BlogPost
             key={key}
             userName={post.userName}
@@ -55,7 +43,7 @@ const Home = () => {
             initialLike={post.initialLike}
             views={post.views}
           />
-        ))}
+        )): "no data"}
         </div> 
         </section>
       </div>
