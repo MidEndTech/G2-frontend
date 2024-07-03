@@ -1,5 +1,5 @@
 import React from 'react';
-import './cardleaderpage.css';
+import '../styles/cardleaderpage.css';
 import Home from '../Home';
 
 

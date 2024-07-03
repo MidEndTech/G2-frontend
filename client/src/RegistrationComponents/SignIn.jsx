@@ -27,6 +27,32 @@ function SignIn() {
         return { ...signInState, errors: action.errors };
       default:
         return signInState;
+=======
+import React, { useEffect, useReducer } from 'react'
+import "../styles/signIn.css"
+import Axios from "axios"
+
+
+function SignIn() {
+    //************ i will use this functions leaters ************************************************************************
+//here put a initial value for inputs
+ const initState = {
+    email:"",
+    password:"",
+    name:"",
+    lastname:"",
+    errors:{},
+}
+
+//This function for reduc the inputs to variable called state
+const reducer = (signInState,action) => {
+    switch(action.type){
+        case "input":
+            return {...signInState,[action.field] : action.value};
+        case "setErrors":
+            return {...signInState,errors:action.errors}
+        default:
+            return signInState;
     }
   };
 

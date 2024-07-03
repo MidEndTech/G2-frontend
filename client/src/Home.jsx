@@ -3,11 +3,13 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 import BlogDetails from "./BlogComponents/BlogDetails";
 import EditPost from "./BlogComponents/EditBlog";
-import "./Pages/Home.css";
+
 
 import BlogPost from "./BlogComponents/BlogPost";
 import CreatePost from "./BlogComponents/CreatePost";
-import "./postHome.css";
+
+import "./styles/Home.css";
+import "./styles/postHome.css";
 
 const Home = () => {
   const host = import.meta.env.VITE_SERVER_HOST;
@@ -184,6 +186,7 @@ x
           </div>
         ))}
       </div>
+
 
       {showCreate && <CreatePost onClose={closeCreate} addPost={addPost} />}
       {selectedPost && (
