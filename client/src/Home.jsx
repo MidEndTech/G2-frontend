@@ -2,10 +2,10 @@ import { useState } from "react";
 
 import BlogDetails from "./BlogComponents/BlogDetails";
 import EditPost from "./BlogComponents/EditBlog";
-import "./Home.css";
+import "./styles/Home.css";
 
-import BlogPost from "./Pages/BlogPost";
-import "./postHome.css";
+import BlogPost from "./BlogComponents/BlogPost";
+import "./styles/postHome.css";
 
 
 const Home = () => {
@@ -94,7 +94,7 @@ const Home = () => {
             </div>
           ))}
         </div>
-      </div>
+      
 
 
       {showCreate && <CreatePost onClose={closeCreate} addPost={addPost} />}

@@ -1,4 +1,4 @@
-import "./Blog.css";
+import "../styles/Blog.css";
 
 const BlogPostPage = ({
   userName,
