@@ -1,11 +1,32 @@
 import { Link } from "react-router-dom";
 import "../styles/header.css";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Axios from "axios"
+
+
 
 function Header() {
+
+  const [useName, setUseName] = useState({});
+
+  const user = Cookies.get("accessToken");
+  console.log(user)
+
+  useEffect(()=>{
+    Axios.get("http://192.168.8.23:8000/api/profile/",{
+      headers:{Authorization:`Bearer ${user}`}
+    }).then((res) =>{
+      setUseName(res.data.data);
+    })
+  },[])
+
+  const navigate = useNavigate();
   
   function HandleLogOut() {
     Cookies.remove("accessToken");
+    navigate("/", { replace: true });
   }
 
   function isLoggedIn() {
@@ -18,8 +39,6 @@ function Header() {
     }
   }
   
-  console.log(Cookies.get("accessToken"));
-
   if (isLoggedIn()) {
     return (
       <div className="buttons">
@@ -61,7 +80,7 @@ function Header() {
                     src="https://via.placeholder.com/50"
                     alt="user photo"
                   />
-                  <p style={{ color: "green" }}> &nbsp;musab alsayed</p>
+                  <p style={{ color: "green" }}> &nbsp;{useName.name} {useName.lastname}</p>
                 </Link>
               </li>
             </ul>
