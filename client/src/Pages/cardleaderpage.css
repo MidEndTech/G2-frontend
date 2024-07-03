@@ -7,22 +7,18 @@
     text-align: center;
   }
   
+  
   .cards__container {
     display: flex;
     flex-flow: column;
     align-items: center;
     max-width: 1120px;
-    width: 90%;
-    margin: 0 auto;
-  }
-  
-  .cards__wrapper {
-    position: relative;
-    margin: 50px 0 45px;
+    width: 80%;
+    margin: 0 auto; /* تغيير من 'margin: auto;' إلى 'margin: 0 auto;' */
   }
   
   .cards__items {
-    margin-bottom: 24px;
+    margin-bottom: 1px;
   }
   
   .cards__item {

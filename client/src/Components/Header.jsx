@@ -12,8 +12,6 @@ function Header(props) {
         <img src="src\assets\logoblog.jpg" alt="logo" style={{ width: '55px', height: 'auto' }}/>
             <h1 className="header"></h1>
 
-
-
           {props.isLoggedIn ?
           <Link to={"/ProfilePage"}>
             <img style={{ width:'50px',height:'50px', borderRadius:"30px"}} src="https://via.placeholder.com/50" alt="user photo" />
@@ -22,7 +20,7 @@ function Header(props) {
           :
             <>
               <ul> 
-             <li><Link to={"/HomePage"}>Home</Link></li>
+             <li><Link to={"/"}>Home</Link></li>
              <li> <Link to={"/MostReader"}>Trend of Readers</Link></li>
              <li><Link to={"/Leaderbords"}>Trend of likes</Link></li>
              <li> <Link to={"/BlogVe"}>Bloges</Link></li>
@@ -41,6 +39,3 @@ function Header(props) {
 }
 
 export default Header;
-﻿
-Rola
-rola0175

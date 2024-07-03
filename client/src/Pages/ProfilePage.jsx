@@ -2,6 +2,7 @@ import React from 'react'
 import Banner from '../ProfileComponents/Banner'
 import About from '../ProfileComponents/About'
 import PepoleMightKnow from '../ProfileComponents/PepoleMightKnow'
+import Home from '../Home';
 
 function ProfilePage() {
   return (
@@ -13,4 +14,4 @@ function ProfilePage() {
   )
 }
 
-export default ProfilePage
+export default ProfilePage 

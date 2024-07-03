@@ -2,9 +2,8 @@ import { useState } from "react";
 
 import BlogDetails from "./BlogComponents/BlogDetails";
 import EditPost from "./BlogComponents/EditBlog";
-import "./Home.css";
 
-import BlogPost from "./Pages/BlogPost";
+import BlogPost from "./BlogComponents/BlogPost";
 import "./postHome.css";
 
 
@@ -14,6 +13,24 @@ const Home = () => {
   const [posts, setPosts] = useState([
     {
       id: 1,
+      userName: "John Doe",
+      title: "My first blog post",
+      date: "2021-08-01",
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+      initialLike: 0,
+      views: 100,
+    },
+    {
+      id: 2,
+      userName: "John Doe",
+      title: "My first blog post",
+      date: "2021-08-01",
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+      initialLike: 0,
+      views: 100,
+    },
+    {
+      id: 3,
       userName: "John Doe",
       title: "My first blog post",
       date: "2021-08-01",
@@ -73,30 +90,22 @@ const Home = () => {
   };
   return (
     <>
-   
-        <div className="container">
-          <div className="blogs-header">
-            <h2 className="posts-hdr">Posts</h2>
-            <a href="#" className="btn-crt" onClick={openCreate}>
-              Create
-            </a>
-          </div>
-          {posts.map((post) => (
-            <div key={post.id} onClick={() => openDetails(post)}>
-              <BlogPost
-                userName={post.userName}
-                title={post.title}
-                date={post.date}
-                content={post.content}
-                initialLike={post.initialLike}
-                views={post.views}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-
-
+        <section className="blogs">
+          <div className="posts1" >
+        {posts.map((post, key) => (
+           <div key={post.id} onClick={() => openDetails(post)}>
+          <BlogPost
+            userName={post.userName}
+            title={post.title}
+            date={post.date}
+            content={post.content}
+            initialLike={post.initialLike}
+            views={post.views}
+          />
+          </div> 
+        ))}
+        </div> 
+        </section>
       {showCreate && <CreatePost onClose={closeCreate} addPost={addPost} />}
       {selectedPost && (
         <BlogDetails

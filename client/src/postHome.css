@@ -3,20 +3,19 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 500%;
-    margin-bottom: 2rem;
+    width: 200%; /* تغيير هذا السطر */
+    
   }
   
   .posts1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 3.5rem; /* إضافة هذا السطر لإضافة مسافة بسيطة بين البوستات */
   }
   
-  .blog .posts1 {
+  .blog .posts1 .card {
     width: 32%;
-    margin-bottom: 2rem;
-    cursor: pointer;
   }
 
   .blog .posts1:hover h3 {

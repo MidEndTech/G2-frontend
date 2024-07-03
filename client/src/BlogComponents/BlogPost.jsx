@@ -1,3 +1,5 @@
+
+import React from "react";
 import "./Blog.css";
 
 const BlogPostPage = ({
@@ -38,9 +40,6 @@ const BlogPostPage = ({
           <div className="footer-item">
             <span className="icon"> 📊</span>
             <span>{views}</span>
-          </div>
-          <div className="footer-item">
-            <button className="btn-details">Details</button>
           </div>
         </div>
       </div>

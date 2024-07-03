@@ -1,3 +1,5 @@
+import React from "react";
+
 const BlogDetails = ({ post, onClose, onDelete, onEdit }) => {
   const { userName, title, date, content, initialLike, views } = post;
 

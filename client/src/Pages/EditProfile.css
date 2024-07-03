@@ -1,0 +1,85 @@
+.form-edit {
+    max-width: 600px;
+    margin:  auto;
+    padding: 5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-edit .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5rem;
+  }
+  
+  .form-edit .form-name,
+  .form-edit .form-email,
+  .form-edit .form-bio,
+  .form-edit .form-number,
+  .form-edit .form-location,
+  .form-edit .form-password {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-edit label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-edit .form-control,
+  .form-edit .email,
+  .form-edit .bio,
+  .form-edit .contact,
+  .form-edit .location,
+  .form-edit .password {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .form-edit .form-control:focus,
+  .form-edit .email:focus,
+  .form-edit .bio:focus,
+  .form-edit .contact:focus,
+  .form-edit .location:focus,
+  .form-edit .password:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  .form-edit .form-location {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+  
+  .form-edit .location-label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.25rem;
+  }
+  
+  .form-edit button {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #27004b ;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .form-edit button:hover {
+    background-color: #5900ad;
+  }

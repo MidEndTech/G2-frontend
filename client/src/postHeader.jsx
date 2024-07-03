@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CreatePost from "./Components/CreatePost";
+import CreatePost from "./BlogComponents/CreatePost";
 
 const PostHeader = () => {
   const [showCreate, setShowCreate] = useState(false);

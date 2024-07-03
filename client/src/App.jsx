@@ -8,6 +8,8 @@ import HomePage from "./Pages/HomePage";
 import Leaderbords from "./Pages/Leaderbords";
 import BlogVe from "./Pages/BlogVe";
 import MostReader from "./Pages/MostReader";
+import blogview from "./Pages/blogview";
+
 
 function App() {
 
@@ -18,12 +20,13 @@ function App() {
   return (
     <>
       <Header isLoggedIn={isLoggedIn} />
+      
       <Routes>
 
-        <Route path="/HomePage" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/BlogVe" element={<BlogVe />} />
+        <Route path="/blogview" element={<blogview />} />
         <Route path="/MostReader" element={<MostReader />} />
-
         <Route path="/LogInPage" element={<LogInPage />} />
         <Route path="/SignInPage" element={<SignInPage />} />
         <Route path="/EditProfile" element={<EditProfile />} />
