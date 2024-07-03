@@ -1,0 +1,65 @@
+.people-might-know {
+    display: flex;
+    flex-direction: column; /* Arrange the content vertically */
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    width: 400px;
+    justify-content: flex-end;
+    margin-left: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: -150px; /* Move the component up by 200px */
+  }
+  
+  .people-might-know h2 {
+    font-size: 20px;
+    color: rgb(65, 64, 64);
+    margin-bottom: 10px; /* Add margin-bottom to create a line */
+    border-bottom: 2px solid rgb(65, 64, 64); /* Add a bottom border */
+    padding-bottom: 5px; 
+  }
+  
+  .people-might-know ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: -1rem;
+  }
+  
+  .people-might-know li {
+    display: flex;
+    flex-direction: column; /* Arrange the content vertically */
+    align-items: flex-start; /* Align the content to the left */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .people-might-know li:hover {
+    transform: translateY(-5px);
+  }
+  
+  .people-might-know li img {
+    width: 0px;
+    height: 5px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem; /* Add margin-bottom to separate the image from the text */
+  }
+  
+  .people-might-know li h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .people-might-know li p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+  }

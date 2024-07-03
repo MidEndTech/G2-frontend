@@ -1,46 +1,13 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import '../styles/About.css';
 
 function About() {
   const [personalAbout, setPersonalAbout] = useState([
+   
     {
-      info: "Male",
+      info: 'charles5182@ummoh.com',
       icon: (
-        <svg
-          width="22"
-          height="25"
-          viewBox="0 0 22 25"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g clipPath="url(#clip0_63_449)">
-            <path
-              d="M10.8813 12.4364C12.8853 12.4364 14.5085 10.6931 14.5085 8.54066C14.5085 6.38825 12.8853 4.6449 10.8813 4.6449C8.87736 4.6449 7.25422 6.38825 7.25422 8.54066C7.25422 10.6931 8.87736 12.4364 10.8813 12.4364ZM10.8813 14.3843C8.46024 14.3843 3.62711 15.6894 3.62711 18.2801V20.228H18.1356V18.2801C18.1356 15.6894 13.3024 14.3843 10.8813 14.3843Z"
-              fill="#656565"
-            />
-          </g>
-          <defs>
-            <clipPath id="clip0_63_449">
-              <rect
-                width="21.7627"
-                height="23.3746"
-                fill="white"
-                transform="translate(0 0.749146)"
-              />
-            </clipPath>
-          </defs>
-        </svg>
-      ),
-    },
-    {
-      info: "charles5182@ummoh.com",
-      icon: (
-        <svg
-          width="15"
-          height="11"
-          viewBox="0 0 15 11"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             fillRule="evenodd"
             clipRule="evenodd"
@@ -51,15 +18,9 @@ function About() {
       ),
     },
     {
-      info: "33757005467",
+      info: '33757005467',
       icon: (
-        <svg
-          width="15"
-          height="12"
-          viewBox="0 0 15 12"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M11.7554 7.19444C11.267 7.11047 10.8806 7.29171 10.5385 7.45C10.1881 7.61311 9.52192 8.04508 9.14004 7.93452C7.18486 7.29111 5.34598 5.92332 4.54995 4.35435C4.40966 4.04262 4.94759 3.50674 5.15016 3.22339C5.34673 2.94911 5.56881 2.63737 5.46752 2.24408C5.37599 1.89065 4.19208 0.686589 3.77344 0.357329C3.49734 0.139837 3.2145 0.0202164 2.92414 0.000883759C1.83252 -0.0365733 0.613349 1.12761 0.399525 1.40613C-0.136159 2 -0.133158 2.79022 0.408528 3.7484C1.71398 6.32206 6.65143 10.2061 9.88354 11.2887C10.48 11.5117 11.0254 11.6234 11.5154 11.6234C11.9948 11.6234 12.4217 11.5165 12.7885 11.3044C13.0654 11.177 14.5817 10.1542 14.5419 9.2582C14.5179 9.02984 14.3686 8.80147 14.1 8.58035C13.6911 8.24263 12.1943 7.26815 11.7554 7.19444Z"
             fill="#656565"
@@ -68,17 +29,19 @@ function About() {
       ),
     },
   ]);
-  return (
-    <div style={{ border: "2px solid" }}>
-      <h3>About</h3>
 
-      <ul>
-        {personalAbout.map((element, index) => (
-          <li key={index} style={{ listStyle: "none" }}>
-            {element.icon} {element.info}
-          </li>
-        ))}
-      </ul>
+  return (
+    <div className="about-container">
+      <div className="about-info">
+        <h1>About</h1>
+        <ul>
+          {personalAbout.map((element, index) => (
+            <li key={index}>
+              {element.icon} {element.info}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

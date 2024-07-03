@@ -39,14 +39,10 @@ const BlogPostPage = ({
             <span className="icon"> 📊</span>
             <span>{views}</span>
           </div>
-          <div className="footer-item">
-          </div>
         </div>
       </div>
     </form>
   );
 };
 
-
 export default BlogPostPage;
-

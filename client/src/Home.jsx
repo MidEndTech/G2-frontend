@@ -166,28 +166,22 @@ x
 
   return (
     <>
-      <div className="container">
-        <div className="blogs-header">
-          <h2 className="posts-hdr">Posts</h2>
-          <a href="#" className="btn-crt" onClick={openCreate}>
-            Create
-          </a>  
-        </div>
-        {posts.map((post) => (
-          <div key={post.id} onClick={() => openDetails(post)}>
-            <BlogPost
-              userName={post.userName}
-              title={post.title}
-              date={post.date}
-              content={post.content}
-              initialLike={post.initialLike}
-              views={post.views}
-            />
-          </div>
+        <section className="blogs">
+          <div className="posts1" >
+        {posts.map((post, key) => (
+           <div key={post.id} onClick={() => openDetails(post)}>
+          <BlogPost
+            userName={post.userName}
+            title={post.title}
+            date={post.date}
+            content={post.content}
+            initialLike={post.initialLike}
+            views={post.views}
+          />
+          </div> 
         ))}
-      </div>
-
-
+        </div> 
+        </section>
       {showCreate && <CreatePost onClose={closeCreate} addPost={addPost} />}
       {selectedPost && (
         <BlogDetails
@@ -204,7 +198,10 @@ x
           savePost={updatePost}
         />
       )}
+
     </>
+
+    
   );
 };
 

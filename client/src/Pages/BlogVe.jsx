@@ -1,14 +1,14 @@
+import React from "react";
+import Home from "../Home";
+import PostHeaFder from "../postHeader";
 
-import React from 'react'
-import Home from '../Home'
-import PostHeader from '../postHeader'
 function BlogVe() {
   return (
     <div>
-<PostHeader/>
-        <Home/>
+      <PostHeaFder />
+      <Home />
     </div>
-  )
+  );
 }
 
-export default BlogVe
+export default BlogVe;
