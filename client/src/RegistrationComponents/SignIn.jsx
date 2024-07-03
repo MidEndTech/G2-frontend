@@ -86,7 +86,7 @@ const handleChange = (e) =>{
         
         try {
             // Make the POST request using Axios
-            const response = await Axios.post("http://192.168.8.32:8000/api/register", {
+            const response = await Axios.post("http://192.168.8.23:8000/api/register", {
                 name: signInState.name,
                 lastname: signInState.lastname,
                 email: signInState.email,

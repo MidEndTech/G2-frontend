@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/login.css";
 import Cookies from "js-cookie";
 
-const host = import.meta.env.VITE_SERVER_HOST;
-const port = import.meta.env.VITE_SERVER_PORT;
+const url  = import.meta.env.VITE_SERVER_URL;
 
 function LogIn() {
   const navigate = useNavigate();
@@ -40,7 +39,7 @@ function LogIn() {
   //the finale function whene submit and atake the variable for back end
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://${host}:${port}/api/login`, {
+    const res = await fetch(`http://192.168.8.23:8000/api/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import Button from '../Components/Button'
+import React, { useEffect, useState } from 'react'
+import Axios from "axios";
 import { Link } from 'react-router-dom'
 
 function Banner() {
