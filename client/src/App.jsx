@@ -8,17 +8,22 @@ import HomePage from "./Pages/HomePage";
 import Leaderbords from "./Pages/Leaderbords";
 import BlogVe from "./Pages/BlogVe";
 import MostReader from "./Pages/MostReader";
+import { useEffect } from "react";
 
 function App() {
 
-  const isLoggedIn = false; // this variable for chick the user it's log in or not
+  // const isLoggedIn = false; // this variable for chick the user it's log in or not
 
-
+  
+  useEffect(()=>{
+    
+  },)
 
 
   return (
     <>
-      <Header isLoggedIn={isLoggedIn} />
+
+      <Header/>
       <Routes>
 
         <Route path="/" element={<HomePage />} />

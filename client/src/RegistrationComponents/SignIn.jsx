@@ -97,12 +97,38 @@ const reducer = (signInState,action) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate fields
-    const errors = validateField();
-    if (Object.keys(errors).length > 0) {
-      dispatch({ type: "setErrors", errors });
-      return;
-    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        // Validate fields
+        const errors = validateField();
+        if (Object.keys(errors).length > 0) {
+            dispatch({ type: 'setErrors', errors });
+            return;
+        }
+        
+        try {
+            // Make the POST request using Axios
+            const response = await Axios.post("http://192.168.8.23:8000/api/register", {
+                name: signInState.name,
+                lastname: signInState.lastname,
+                email: signInState.email,
+                password: signInState.password,
+            });
+    
+            // Handle response data
+            console.log(response.data);
+            const data = await response.json()
+
+            
+            // Optionally, you can dispatch success actions or handle UI state here
+        } catch (error) {
+            // Handle error
+            console.error('Error registering user:', error);
+            // Optionally, dispatch error actions or handle UI state for errors
+        }
+    };
+
 
     try {
       // Make the POST request using Axios

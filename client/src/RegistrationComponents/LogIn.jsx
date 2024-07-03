@@ -43,7 +43,7 @@ function LogIn() {
   //the finale function whene submit and atake the variable for back end
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch('http://192.168.8.23:8000/api/login', {
+    const res = await fetch(`http://192.168.8.23:8000/api/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
