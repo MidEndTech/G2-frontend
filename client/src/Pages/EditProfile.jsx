@@ -1,6 +1,14 @@
+import React from "react";
+import "../styles/EditProfile.css";
+import { Link } from 'react-router-dom';
+
+
+
 const EditProfile = () => {
   return (
+
     <form className="form-edit">
+
       <div className="container">
         <div className="form-name">
           <label htmlFor="firstName" className="lbl">
@@ -21,30 +29,21 @@ const EditProfile = () => {
           <input type="text" className="bio" />
         </div>
         <div className="form-number">
-          <label htmlFor="number">Contact Number</label>
-          <input type="number" className="contact" />
+        <label>Passoword</label>
+        <input type="password" className="password" />
         </div>
-        <div className="form-location">
-          <label className="location-label">City</label>
-          <select name="city" className="location">
-            <option value=" "> </option>
-            <option value="Makkah">Makkah</option>
-            <option value="Jeddah">Jeddah</option>
-            <option value="Riyadh">Riyadh</option>
-          </select>
-          <label className="location-label"> State</label>
-          <select name="state" className="location">
-            <option value=" "> </option>
-            <option value="Makkah">Makkah</option>
-            <option value="Jeddah">Jeddah</option>
-            <option value="Riyadh">Riyadh</option>
-          </select>
+        <div className="form-number">
+        <label>Confirm Passoword</label>
+        <input type="password" className="password" />
         </div>
+
+
         <div className="form-password">
-          <label>Passoword</label>
-          <input type="password" className="password" />
+        <label htmlFor="number">Contact Number</label>
+        <input type="number" className="contact" />
         </div>
         <button>Save</button>
+        <button><Link to={"/ProfilePage"}>Cancel</Link></button>
       </div>
     </form>
   );
