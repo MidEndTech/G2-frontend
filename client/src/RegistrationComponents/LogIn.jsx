@@ -6,10 +6,8 @@ import "../styles/login.css";
 import Cookies from "js-cookie";
 
 function LogIn() {
-  const host = import.meta.env.VITE_SERVER_HOST;
-  const port = import.meta.env.VITE_SERVER_PORT;
-
-=======
+  // const host = import.meta.env.VITE_SERVER_HOST;
+  // const port = import.meta.env.VITE_SERVER_PORT
 
 const host = import.meta.env.VITE_SERVER_HOST;
 const port = import.meta.env.VITE_SERVER_PORT;
@@ -50,13 +48,16 @@ function LogIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch('', 
+    
+    const res = await fetch('', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(logInState),
     });
+    
+
     if (res.status === 401) {
 
       alert("falid password or email");

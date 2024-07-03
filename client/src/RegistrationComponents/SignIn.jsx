@@ -1,12 +1,11 @@
 // (c)Musab Alsayed / MID-END
-
 import React, { useEffect, useReducer } from "react";
-import "./signIn.css";
-import Axios from "axios";
+import "../styles/signIn.css"
+import Axios from "axios"
 
 function SignIn() {
-  const host = import.meta.env.VITE_SERVER_HOST;
-  const port = import.meta.env.VITE_SERVER_PORT;
+  // const host = import.meta.env.VITE_SERVER_HOST;
+  // const port = import.meta.env.VITE_SERVER_PORT;
   //************ i will use this functions leaters ************************************************************************
 
   //here put a initial value for inputs
@@ -18,20 +17,7 @@ function SignIn() {
     errors: {},
   };
 
-  //This function for reduc the inputs to variable called state
-  const reducer = (signInState, action) => {
-    switch (action.type) {
-      case "input":
-        return { ...signInState, [action.field]: action.value };
-      case "setErrors":
-        return { ...signInState, errors: action.errors };
-      default:
-        return signInState;
-=======
-import React, { useEffect, useReducer } from 'react'
-import "../styles/signIn.css"
-import Axios from "axios"
-
+ 
 
 function SignIn() {
     //************ i will use this functions leaters ************************************************************************
@@ -42,6 +28,7 @@ function SignIn() {
     name:"",
     lastname:"",
     errors:{},
+}
 }
 
 //This function for reduc the inputs to variable called state
@@ -244,5 +231,6 @@ const reducer = (signInState,action) => {
     </div>
   );
 }
+    
 
 export default SignIn;
