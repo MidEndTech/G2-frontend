@@ -3,23 +3,9 @@ import React, { useEffect, useReducer } from "react";
 import "../styles/signIn.css"
 import Axios from "axios"
 
-function SignIn() {
-  // const host = import.meta.env.VITE_SERVER_HOST;
-  // const port = import.meta.env.VITE_SERVER_PORT;
-  //************ i will use this functions leaters ************************************************************************
-
-  //here put a initial value for inputs
-  const initState = {
-    email: "",
-    password: "",
-    name: "",
-    lastname: "",
-    errors: {},
-  };
-
- 
 
 function SignIn() {
+
     //************ i will use this functions leaters ************************************************************************
 //here put a initial value for inputs
  const initState = {
@@ -29,7 +15,7 @@ function SignIn() {
     lastname:"",
     errors:{},
 }
-}
+
 
 //This function for reduc the inputs to variable called state
 const reducer = (signInState,action) => {
@@ -94,8 +80,6 @@ const reducer = (signInState,action) => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -127,30 +111,7 @@ const reducer = (signInState,action) => {
             console.error('Error registering user:', error);
             // Optionally, dispatch error actions or handle UI state for errors
         }
-    };
-
-
-    try {
-      // Make the POST request using Axios
-      //http://${host}:${port}/api/register`
-      const response = await Axios.post('', {
-        name: signInState.name,
-        lastname: signInState.lastname,
-        email: signInState.email,
-        password: signInState.password,
-      });
-
-      // Handle response data
-      console.log(response.data);
-      const data = await response.json();
-
-      // Optionally, you can dispatch success actions or handle UI state here
-    } catch (error) {
-      // Handle error
-      console.error("Error registering user:", error);
-      // Optionally, dispatch error actions or handle UI state for errors
-    }
-  };
+      }
 
   return (
     <div>
@@ -160,11 +121,13 @@ const reducer = (signInState,action) => {
           {signInState.errors.email}
         </p>
       )}
+
       {signInState.errors.password && (
         <p style={{ color: "red", textAlign: "center" }}>
           {signInState.errors.password}
         </p>
       )}
+
       <form className="formSinup" onSubmit={handleSubmit}>
         <label htmlFor="email">
           Enter your emaill address
@@ -256,7 +219,7 @@ const reducer = (signInState,action) => {
       </form>
     </div>
   );
-}
-    
 
-export default SignIn;
+};
+
+export default SignIn

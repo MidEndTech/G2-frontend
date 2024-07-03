@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/About.css';
 
 function About() {
+
   const [personalAbout, setPersonalAbout] = useState([
-   
     {
-      info: 'charles5182@ummoh.com',
+      info: "oop@gmail.com",
       icon: (
         <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -29,6 +29,7 @@ function About() {
       ),
     },
   ]);
+
 
   return (
     <div className="about-container">

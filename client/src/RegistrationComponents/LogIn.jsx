@@ -55,11 +55,13 @@ function LogIn() {
     } else {
       const data = await res.json();
       console.log(data);
-      const accessToken = data.accessToken;
+      const accessToken = data.access_token;
       Cookies.set("accessToken", accessToken, { expires: 2 });
 
       navigate("/", { replace: true });
     }
+
+    console.log(Cookies.get("accessToken"));
 
     //     then((res)=>{
     //     if(res.status === 200){
