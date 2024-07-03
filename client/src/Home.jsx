@@ -1,16 +1,25 @@
 import { useState } from "react";
 
+import Cookies from "js-cookie";
 import BlogDetails from "./BlogComponents/BlogDetails";
 import EditPost from "./BlogComponents/EditBlog";
-import "./styles/Home.css";
+
 
 import BlogPost from "./BlogComponents/BlogPost";
+import CreatePost from "./BlogComponents/CreatePost";
+
+import "./styles/Home.css";
 import "./styles/postHome.css";
 
-
 const Home = () => {
+  const host = import.meta.env.VITE_SERVER_HOST;
+  const port = import.meta.env.VITE_SERVER_PORT;
+
+
   const [showCreate, setShowCreate] = useState(false);
   const [selectedPost, setSelectedPost] = useState(null);
+  const [likesCount, setLikesNumber] = useState();
+
   const [posts, setPosts] = useState([
     {
       id: 1,
@@ -21,27 +30,93 @@ const Home = () => {
       initialLike: 0,
       views: 100,
     },
-
-    
-   
   ]);
 
   const [editingPost, setEditingPost] = useState(null);
 
-  const addPost = (newPost) => {
-    setPosts([
-      ...posts,
-      { ...newPost, id: posts.length + 1, initialLike: 0, views: 0 },
-    ]);
+  // const addPost = (newPost) => {
+  //   setPosts([
+  //     ...posts,
+  //     { ...newPost, id: posts.length + 1, initialLike: 0, views: 0 },
+  //   ]);
+  // };
+
+  // showPosts
+  const showPosts = async (id) => {
+    const token = Cookies.get("accessToken");
+    const res = await fetch(`http://${host}:${port}/api/${id}`, { 
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
+
+  const addPost = async (newPost) => {
+    const token = Cookies.get("accessToken");
+    const res = await fetch(`http://${host}:${port}/api/store`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(newPost),
+    });
+
+    if (res.ok) {
+      const createdPost = await res.json();
+      setPosts([
+        ...posts,
+        { ...createdPost, id: posts.length + 1, initialLike: 0, views: 0 },
+      ]);
+    } else {
+      console.log("Failed to create post");
+    }
   };
 
-
-  const updatePost = (updatedPost) => {
-    setPosts(
-      posts.map((post) => (post.id === updatedPost.id ? updatedPost : post))
-    );
-    setEditingPost(null);
+  // const updatePost = (updatedPost) => {
+  //   setPosts(
+  //     posts.map((post) => (post.id === updatedPost.id ? updatedPost : post))
+  //   );
+  //   setEditingPost(null);
+  // };
+  const updatePost = async (updatedPost) => {
+    const token = Cookies.get("accessToken");
+    const res = await fetch(`http://${host}:${port}/api/${updatedPost.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(updatedPost),
+    });
+x
+    if (res.ok) {
+      const newPost = await res.json();
+      setPosts(
+        posts.map((post) => (post.id === updatedPost.id ? newPost : post))
+      );
+      setEditingPost(null);
+    } else {
+      console.log("Failed to update post");
+    }
   };
+
+  // // async function likeCounter(postId) 
+
+  // const likeCounter = async (postId) => {
+  //   const token = Cookies.get("accessToken");
+  //   const res = await fetch("", {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${token}`,
+
+  //     },
+  //     body: JSON.stringify({ postId }),
+  //   });
+
+  
 
   const openCreate = () => {
     setShowCreate(true);
@@ -67,34 +142,50 @@ const Home = () => {
     setEditingPost(null);
   };
 
-  const deletePost = (postId) => {
-    setPosts(posts.filter((post) => post.id !== postId));
-    setSelectedPost(null);
+  // const deletePost = (postId) => {
+  //   setPosts(posts.filter((post) => post.id !== postId));
+  //   setSelectedPost(null);
+  // };
+
+  const deletePost = async (postId) => {
+    const token = Cookies.get("accessToken");
+    const res = await fetch(`http://${host}:${port}/api/delete/${postId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (res.ok) {
+      setPosts(posts.filter((post) => post.id !== postId));
+      setSelectedPost(null);
+    } else {
+      console.error("Failed to delete post");
+    }
   };
+
   return (
     <>
-   
-        <div className="container">
-          <div className="blogs-header">
-            <h2 className="posts-hdr">Posts</h2>
-            <a href="#" className="btn-crt" onClick={openCreate}>
-              Create
-            </a>
-          </div>
-          {posts.map((post) => (
-            <div key={post.id} onClick={() => openDetails(post)}>
-              <BlogPost
-                userName={post.userName}
-                title={post.title}
-                date={post.date}
-                content={post.content}
-                initialLike={post.initialLike}
-                views={post.views}
-              />
-            </div>
-          ))}
+      <div className="container">
+        <div className="blogs-header">
+          <h2 className="posts-hdr">Posts</h2>
+          <a href="#" className="btn-crt" onClick={openCreate}>
+            Create
+          </a>  
         </div>
-      
+        {posts.map((post) => (
+          <div key={post.id} onClick={() => openDetails(post)}>
+            <BlogPost
+              userName={post.userName}
+              title={post.title}
+              date={post.date}
+              content={post.content}
+              initialLike={post.initialLike}
+              views={post.views}
+            />
+          </div>
+        ))}
+      </div>
 
 
       {showCreate && <CreatePost onClose={closeCreate} addPost={addPost} />}
@@ -113,7 +204,6 @@ const Home = () => {
           savePost={updatePost}
         />
       )}
-
     </>
   );
 };

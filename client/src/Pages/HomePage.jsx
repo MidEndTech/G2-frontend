@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from "react";
 import BlogVe from "./BlogVe";
 import "../styles/Home.css";
 
@@ -8,7 +8,7 @@ function HomePage() {
 
   const handleReadMoreClick = () => {
     setShowBlogVe(true);
-    blogVeRef.current.scrollIntoView({ behavior: 'smooth' });
+    blogVeRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (

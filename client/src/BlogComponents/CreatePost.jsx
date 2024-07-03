@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CreatePost = ({ onClose, addPost }) => {
+const CreatePost =  ({ onClose, addPost }) => {
   const [posts, setPosts] = useState([]);
 
   const [newPost, setNewPosts] = useState({

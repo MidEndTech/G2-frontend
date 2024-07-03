@@ -1,8 +1,15 @@
 import { useReducer } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+
 import "../styles/login.css";
 import Cookies from "js-cookie";
+
+function LogIn() {
+  const host = import.meta.env.VITE_SERVER_HOST;
+  const port = import.meta.env.VITE_SERVER_PORT;
+
+=======
 
 const host = import.meta.env.VITE_SERVER_HOST;
 const port = import.meta.env.VITE_SERVER_PORT;
@@ -37,10 +44,13 @@ function LogIn() {
     });
   };
 
+
+  //`http://${host}:${port}/api/login`
   //the finale function whene submit and atake the variable for back end
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://${host}:${port}/api/login`, {
+
+    const res = await fetch('', 
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,6 +58,27 @@ function LogIn() {
       body: JSON.stringify(logInState),
     });
     if (res.status === 401) {
+
+      alert("falid password or email");
+    } else {
+      const data = await res.json();
+      console.log(data);
+      const accessToken = data.accessToken;
+      Cookies.set("accessToken", accessToken, { expires: 2 });
+
+      navigate("/", { replace: true });
+    }
+
+    //     then((res)=>{
+    //     if(res.status === 200){
+    //       alert("success")
+    //   }
+    // }).then((data) =>{
+    //   console.log(data)
+    // })
+    // .catch((e) =>{
+    //   console.log(e)
+    // })
       alert("Invalid email or password. Please try again");
     } else if (res.status === 200) {
       const data = await res.json();
