@@ -19,7 +19,7 @@ jobs:
         script_stop: true
         script: |
           . ~/.nvm/nvm.sh
-          cd /var/www/G1-frontend/MidEndBlogs
+          cd /var/www/G2-frontend/client
           git pull
           npm ci
           npm run build
