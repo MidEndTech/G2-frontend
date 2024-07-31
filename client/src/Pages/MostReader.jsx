@@ -2,6 +2,7 @@
 import React from 'react'
 import '../styles/cardleaderpage.css';
 import Home from '../Home';
+import '../assets/Teal.png';
 
 function MostReader() {
   return (
