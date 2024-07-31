@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from '../Home';
+import "../assets/Building.png";
 
 
 function Leaderbords() {

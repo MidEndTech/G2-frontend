@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import BlogVe from "./BlogVe";
 import "../styles/Home.css";
+import "../assets/video-2.mp4";
 
 function HomePage() {
   const [showBlogVe, setShowBlogVe] = useState(false);
