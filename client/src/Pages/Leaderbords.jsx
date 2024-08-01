@@ -1,13 +1,13 @@
 import React from 'react';
 import Home from '../Home';
-import "../assets/Building.png";
+import img2 from "../assets/Building.png";
 
 
 function Leaderbords() {
   return (
     <div className='cards'>
         
-        <img src="src\assets\Building.png" alt="logo" style={{ marginTop: '-80px', marginBottom: '-50px', width: '200px', height: "300px",display: 'block', marginLeft: 'auto', marginRight: 'auto' }}/>
+        <img src={img2} alt="logo" style={{ marginTop: '-80px', marginBottom: '-50px', width: '200px', height: "300px",display: 'block', marginLeft: 'auto', marginRight: 'auto' }}/>
         
       <h1>10 blogs with the highest number of likes!</h1>
       
