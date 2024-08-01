@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import BlogVe from "./BlogVe";
 import "../styles/Home.css";
-import "/src/assets/video-2.mp4";
+import video1 from "../assets/video-2.mp4";
 
 function HomePage() {
   const [showBlogVe, setShowBlogVe] = useState(false);
@@ -15,7 +15,7 @@ function HomePage() {
   return (
     <div>
       <div className="herosection">
-        <video src="src\assets\video-2.mp4" autoPlay loop muted />
+      <video src={video1} autoPlay loop muted/>
         <h1 className="headerr">HASHTAG BLOG</h1>
         <p>
           Welcome to the Public Blog This site is an interactive content sharing
