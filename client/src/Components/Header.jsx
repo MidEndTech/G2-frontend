@@ -52,7 +52,7 @@ function Header() {
           />
           <h1 className="header"></h1>
 
-          <>
+          <>n
             <ul>
               <li>
                 <Link to={"/"}>Home</Link>
@@ -95,7 +95,7 @@ function Header() {
       <div className="buttons">
         <div className="main">
           <img
-            src="src\assets\logoblog.jpg"
+            src={logo1}
             alt="logo"
             style={{ width: "55px", height: "auto" }}
           />
