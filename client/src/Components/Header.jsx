@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../styles/header.css";
-import logo from "../assets/logoblog.jpg";
+import logo1 from "../assets/logoblog.jpg";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -46,7 +46,7 @@ function Header() {
       <div className="buttons">
         <div className="main">
           <img
-            src={logo}
+            src={logo1}
             alt="logo"
             style={{ width: "55px", height: "auto" }}
           />
